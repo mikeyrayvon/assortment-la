@@ -1,11 +1,11 @@
 {
-  "name": "nextjs-blog",
+  "name": "assortment-la",
   "version": "1.0.0",
-  "description": "Sample blog built with Next.js using Prismic headless CMS",
-  "private": true,
+  "description": "Nextjs and Prismic website for Assortment",
+  "private": false,
   "author": {
-    "name": "Raul Gonzalez",
-    "email": "raul.gonzalez@prismic.io"
+    "name": "Michael Ray-Von",
+    "email": "mikey@interglobal.vision"
   },
   "dependencies": {
     "next": "^9.1.4",
@@ -21,7 +21,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/prismicio/nextjs-blog.git"
+    "url": "https://github.com/mikeyrayvon/assortment-la"
   },
-  "license": "Apache-2.0"
+  "license": "Apache-2.0",
+  "devDependencies": {
+    "tailwindcss": "^1.9.6"
+  }
 }
