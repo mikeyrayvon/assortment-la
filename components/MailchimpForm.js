@@ -25,8 +25,8 @@ const MailchimpForm = ({ mailchimpAction }) => {
                 type='email'
                 className='font-normal border-b border-black flex-grow bg-transparent'
               />
-              <button className='button' onClick={submit}>
-                <span className="font-normal bg-transparent">Subscribe</span>
+              <button className='button py-1' onClick={submit}>
+                <span className="font-normal text-xl bg-transparent font-query">Subscribe</span>
               </button>
             </div>
             <div>
