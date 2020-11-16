@@ -1,10 +1,21 @@
 import React, { useEffect, useState } from 'react'
 
-const Weather = () => {
+const Weather = ({ city }) => {
+
   const [forecast, setForecast] = useState({});
 
+  let city_id = '5368361' // Los Angeles, CA
+
+  if (city === 'Mexico City') {
+    city_id = '3530597'
+  }
+
+  if (city === 'Paris') {
+    city_id = '2988507'
+  }
+
   useEffect(() => {
-    fetch('https://api.openweathermap.org/data/2.5/weather?q=Los%20Angeles&units=imperial&appid=3c886412f00a85f921c56833793af3b9')
+    fetch(`https://api.openweathermap.org/data/2.5/weather?id=${city_id}&units=imperial&appid=3c886412f00a85f921c56833793af3b9`)
     .then(res => res.json())
     .then(res => {
       setForecast(res);

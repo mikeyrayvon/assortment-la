@@ -1,4 +1,3 @@
-import React from 'react'
 import Slider from 'react-slick'
 
 import ProjectSliderItem from './ProjectSliderItem'
@@ -19,7 +18,7 @@ const ProjectSlider = ({ project, talent }) => {
       <Container>
         <Slider {...settings}>
           <div>
-            <div className='project-slide pr-4 flex justify-center items-center'>
+            <div className='project-slide pr-12 flex items-center w-auto'>
               <h1>
                 <span className='font-query text-5xl'>{project.data.title}</span> <br />
                 {talent && talent.data &&

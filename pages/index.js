@@ -1,11 +1,10 @@
-import React from 'react';
-import Head from 'next/head';
+import Head from 'next/head'
 
-import Prismic from 'prismic-javascript';
-import { Client } from 'utils/prismicHelpers';
+import Prismic from 'prismic-javascript'
+import { Client } from 'utils/prismicHelpers'
 
-import DefaultLayout from 'layouts';
-import ProjectList from 'components/ProjectList';
+import DefaultLayout from 'layouts'
+import ProjectList from 'components/ProjectList'
 
 const Landing = ({ settings, projects }) => {
   return (
@@ -15,8 +14,8 @@ const Landing = ({ settings, projects }) => {
       </Head>
       <ProjectList projects={projects} />
     </DefaultLayout>
-  );
-};
+  )
+}
 
 export async function getStaticProps({ preview = null, previewData = {} }) {
 
@@ -42,4 +41,4 @@ export async function getStaticProps({ preview = null, previewData = {} }) {
   }
 }
 
-export default Landing;
+export default Landing

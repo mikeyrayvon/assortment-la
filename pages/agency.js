@@ -1,4 +1,3 @@
-import React from 'react'
 import Head from 'next/head'
 import {RichText} from 'prismic-reactjs'
 import Prismic from 'prismic-javascript'
@@ -24,8 +23,8 @@ const Agency = ({ settings, agency }) => {
         </Container>
       }
     </DefaultLayout>
-  );
-};
+  )
+}
 
 export async function getStaticProps({ preview = null, previewData = {} }) {
 

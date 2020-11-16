@@ -7,18 +7,21 @@ import Container from 'components/Container'
 import Clock from 'components/Clock'
 import Weather from 'components/Weather'
 
-const Header = () => {
+const Header = ({ settings }) => {
+  console.log(settings)
   return (
     <header className='pt-4'>
       <Container>
         <div className='flex justify-between'>
           <div className='w-4/12'>
-            <Clock />
+            {settings && settings.data &&
+              <Clock city={settings.data.current_city} />
+            }
           </div>
           <div className='w-4/12 text-center flex flex-col items-center'>
             <h1>
               <NextLink href={'/'}>
-                <a className='uppercase text-2xl'>Assortment</a>
+                <a className='uppercase text-2xl'><img className='header-logo' src='/images/assortment-logo.svg' /></a>
               </NextLink>
             </h1>
             <nav>
@@ -42,7 +45,9 @@ const Header = () => {
             </nav>
           </div>
           <div className='w-4/12 text-right'>
-            <Weather />
+            {settings && settings.data &&
+              <Weather city={settings.data.current_city} />
+            }
           </div>
         </div>
       </Container>

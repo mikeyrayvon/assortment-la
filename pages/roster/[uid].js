@@ -1,16 +1,15 @@
-import React from 'react';
 import Prismic from 'prismic-javascript'
-import Head from 'next/head';
+import Head from 'next/head'
 
 import { queryRepeatableDocuments } from 'utils/queries'
 
-import DefaultLayout from 'layouts';
-import ProjectSlider from 'components/ProjectSlider';
-import TalentHeader from 'components/TalentHeader';
-import EditionList from 'components/EditionList';
+import DefaultLayout from 'layouts'
+import ProjectSlider from 'components/ProjectSlider'
+import TalentHeader from 'components/TalentHeader'
+import EditionList from 'components/EditionList'
 
 import { hrefResolver, linkResolver } from 'prismic-configuration'
-import { Client } from 'utils/prismicHelpers';
+import { Client } from 'utils/prismicHelpers'
 
 const Talent = ({ settings, talent, relatedProjects, relatedEditions }) => {
 
@@ -37,11 +36,11 @@ const Talent = ({ settings, talent, relatedProjects, relatedEditions }) => {
           <EditionList editions={relatedEditions} />
         }
       </DefaultLayout>
-    );
+    )
   }
 
-  return null;
-};
+  return null
+}
 
 export async function getStaticProps({ params, preview = null, previewData = {} }) {
   const { ref } = previewData
@@ -87,4 +86,4 @@ export async function getStaticPaths() {
   }
 }
 
-export default Talent;
+export default Talent

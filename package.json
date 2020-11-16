@@ -8,6 +8,7 @@
     "email": "mikey@interglobal.vision"
   },
   "dependencies": {
+    "gsap": "^3.5.1",
     "moment-timezone": "^0.5.32",
     "next": "^9.1.4",
     "prismic-javascript": "3.0.1",

@@ -1,10 +1,9 @@
-import React from 'react';
-import Head from 'next/head';
+import Head from 'next/head'
 
-import Prismic from 'prismic-javascript';
-import { Client } from 'utils/prismicHelpers';
+import Prismic from 'prismic-javascript'
+import { Client } from 'utils/prismicHelpers'
 
-import DefaultLayout from 'layouts';
+import DefaultLayout from 'layouts'
 import TalentList from 'components/TalentList'
 
 const Roster = ({ settings, roster }) => {
@@ -15,8 +14,8 @@ const Roster = ({ settings, roster }) => {
       </Head>
       <TalentList roster={roster} />
     </DefaultLayout>
-  );
-};
+  )
+}
 
 export async function getStaticProps({ preview = null, previewData = {} }) {
 
@@ -42,4 +41,4 @@ export async function getStaticProps({ preview = null, previewData = {} }) {
   }
 }
 
-export default Roster;
+export default Roster

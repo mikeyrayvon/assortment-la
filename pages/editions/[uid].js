@@ -1,4 +1,3 @@
-import React from 'react'
 import Prismic from 'prismic-javascript'
 import Head from 'next/head'
 import { RichText } from 'prismic-reactjs'

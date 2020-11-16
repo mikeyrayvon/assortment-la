@@ -1,5 +1,3 @@
-import React from 'react'
-
 import EditionListItem from 'components/EditionListItem';
 import Container from 'components/Container'
 

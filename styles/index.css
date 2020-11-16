@@ -33,6 +33,10 @@ main {
   vertical-align: super;
 }
 
+.header-logo {
+  height: 16px
+}
+
 .talent-list-item:last-of-type .talent-list-comma {
   display: none;
 }
@@ -61,6 +65,10 @@ input {
     width: 720px;
   }
 
+  .header-logo {
+    height: 18px
+  }
+
   .project-list-image {
     width: 350px;
     height: 350px;
@@ -80,6 +88,10 @@ input {
 @screen lg {
   .container {
     width: 960px;
+  }
+
+  .header-logo {
+    height: 20px
   }
 
   .project-list-image {

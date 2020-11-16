@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import TalentListItem from './TalentListItem'
 import TalentListImage from './TalentListImage'
 
