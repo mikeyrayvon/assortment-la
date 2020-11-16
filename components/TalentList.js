@@ -7,11 +7,15 @@ const TalentList = ({ roster }) => {
 
   return (
     <div className='container mx-auto'>
-      <ul>
-        {roster.map(talent => (
-          <TalentListItem talent={talent} setHoveredTalent={setHoveredTalent} key={talent.id} />
-        ))}
-      </ul>
+      <div className='flex items-center justify-center' style={{
+        minHeight: '60vh'
+      }}>
+        <ul className='relative z-10 text-center'>
+          {roster.map(talent => (
+            <TalentListItem talent={talent} setHoveredTalent={setHoveredTalent} key={talent.id} />
+          ))}
+        </ul>
+      </div>
       <ul className='pointer-events-none'>
         {roster.map(talent => (
           <TalentListImage talent={talent} key={`${talent.id}_image`} hoveredTalent={hoveredTalent} />

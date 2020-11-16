@@ -1,21 +1,120 @@
+@import 'fonts.css';
+
 /* purgecss start ignore */
 
 @tailwind base;
 @tailwind components;
 
 /* purgecss end ignore */
+
+html, body {
+  @apply font-america;
+  font-size: 12px;
+}
+
 main {
   min-height: 80vh;
 }
+
+.container {
+  width: 96%;
+}
+
 .text-content p {
   margin-bottom: 1rem;
 }
+
+.text-content a:link {
+  @apply underline;
+}
+
 .superscript {
-  @apply text-base mx-2;
+  @apply text-base font-america mx-2;
   vertical-align: super;
 }
+
 .talent-list-item:last-of-type .talent-list-comma {
   display: none;
+}
+
+.project-list-image {
+  width: 270px;
+  height: 270px;
+}
+
+input {
+  max-width: 450px;
+}
+
+@screen sm {
+  .container {
+    width: 580px;
+  }
+
+  .edition-list-image-holder {
+    height: 350px;
+  }
+}
+
+@screen md {
+  .container {
+    width: 720px;
+  }
+
+  .project-list-image {
+    width: 350px;
+    height: 350px;
+  }
+
+  .edition-list-image-holder {
+    height: 300px;
+    max-height: none;
+  }
+}
+
+@screen lg {
+  .container {
+    width: 960px;
+  }
+
+  .project-list-image {
+    width: 450px;
+    height: 450px;
+  }
+
+  .edition-list-image-holder {
+    height: 400px;
+  }
+}
+
+@screen xl {
+  .container {
+    width: 1100px;
+  }
+
+  .project-list-image {
+    width: 500px;
+    height: 480px;
+  }
+
+  .edition-list-image-holder {
+    height: 500px;
+  }
+}
+
+@screen xxl {
+  .container {
+    width: 1380px;
+  }
+
+  .project-list-image {
+    width: 600px;
+    height: 550px;
+  }
+
+  .edition-list-image-holder {
+    height: 600px
+  }
 }
 
 @tailwind utilities;

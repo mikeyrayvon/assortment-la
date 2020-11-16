@@ -5,6 +5,7 @@ import Prismic from 'prismic-javascript'
 import { Client } from 'utils/prismicHelpers'
 
 import DefaultLayout from 'layouts';
+import EditionList from 'components/EditionList';
 
 const Editions = ({ settings, editions }) => {
   return (
@@ -12,6 +13,7 @@ const Editions = ({ settings, editions }) => {
       <Head>
         <title>Assortment | Editions</title>
       </Head>
+      <EditionList editions={editions} />
     </DefaultLayout>
   );
 };

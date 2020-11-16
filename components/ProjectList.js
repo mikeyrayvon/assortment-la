@@ -9,7 +9,7 @@ import Container from 'components/Container'
 const ProjectList = ({ projects }) => {
   return (
     <Container>
-      <div className='flex space-x-8'>
+      <div className='flex flex-wrap -mx-4'>
         {projects.map((project) => (
           <ProjectListItem project={project} key={project.id} />
         ))}

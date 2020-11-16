@@ -7,7 +7,7 @@ const EditionList = ({ editions }) => {
   if (editions) {
     return (
       <Container>
-        <div className='flex space-x-8'>
+        <div className='flex flex-wrap -mx-4'>
           {editions.map(edition => (
             <EditionListItem edition={edition} key={edition.id} />
           ))}

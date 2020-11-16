@@ -20,7 +20,7 @@ const ProjectSlider = ({ project, talent }) => {
         <Slider {...settings}>
           <div>
             <h1>
-              <span>{project.data.title}</span> <br />
+              <span className='font-query'>{project.data.title}</span> <br />
               {talent && talent.data &&
                 <span>{talent.data.name}</span>
               }

@@ -8,7 +8,7 @@ import { hrefResolver, linkResolver } from 'prismic-configuration'
 
 const Footer = ({ settings }) => {
   const year = new Date().getFullYear();
-  console.log(settings)
+
   return (
     <footer className='bg-white mt-auto py-16'>
       <Container>
@@ -18,12 +18,24 @@ const Footer = ({ settings }) => {
               <div>{RichText.render(settings.data.footer_text, linkResolver)}</div>
             </div>
             <div className='w-full md:w-6/12 md:order-3 mb-10'>
-              <div className='mb-4'><span>{settings.data.mailchimp_label}</span></div>
-              <MailchimpForm action={settings.data.mailchimp_action}/>
+              {settings.data.mailchimp_action &&
+                <div>
+                  <div className='mb-4'><span>{settings.data.mailchimp_label}</span></div>
+                  <MailchimpForm mailchimpAction={settings.data.mailchimp_action}/>
+                </div>
+              }
             </div>
             <div className='w-full md:w-4/12 md:order-2 mb-10'>
-              <div className='mb-4'>Instagram</div>
-              <div>Soundcloud</div>
+              {settings.data.instagram_handle &&
+                <div className='mb-4'>
+                  <a className='hover:underline' href={`https://instagram.com/${settings.data.instagram_handle}`}>Instagram</a>
+                </div>
+              }
+              {settings.data.soundcloud_handle &&
+                <div className='mb-4'>
+                  <a className='hover:underline' href={`https://soundcloud.com/${settings.data.soundcloud_handle}`}>Soundcloud</a>
+                </div>
+              }
             </div>
             <div className='w-full md:w-4/12 md:order-4 mb-10'>
               <div className='text-content'>{RichText.render(settings.data.footer_contact, linkResolver)}</div>

@@ -5,17 +5,18 @@ import { hrefResolver, linkResolver } from 'prismic-configuration'
 
 const TalentListItem = ({ talent, setHoveredTalent }) => {
   return (
-    <li className='talent-list-item text-5xl'>
+    <li className='talent-list-item text-7xl inline-block'>
       <NextLink
         as={linkResolver(talent)}
         href={hrefResolver(talent)}
       >
         <a
-          onMouseEnter={() => { setHoveredTalent(talent.id) }} 
+          className='hover:underline font-query'
+          onMouseEnter={() => { setHoveredTalent(talent.id) }}
           onMouseLeave={() => { setHoveredTalent(false)}}>{talent.data.name}</a>
       </NextLink>
       <span className='superscript'>({talent.data.roles})</span>
-      <span className='talent-list-comma'>, </span>
+      <span className='talent-list-comma font-query'>,&nbsp;</span>
     </li>
   )
 }

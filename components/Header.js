@@ -9,7 +9,7 @@ import Weather from 'components/Weather'
 
 const Header = () => {
   return (
-    <header>
+    <header className='pt-4'>
       <Container>
         <div className='flex justify-between'>
           <div className='w-4/12'>
@@ -22,20 +22,20 @@ const Header = () => {
               </NextLink>
             </h1>
             <nav>
-              <ul className='flex text-3xl'>
+              <ul className='flex text-5xl font-query'>
                 <li className='px-5'>
                   <NextLink href={'/roster'}>
-                    <a>Roster</a>
+                    <a className='hover:underline'>Roster</a>
                   </NextLink>
                 </li>
                 <li className='px-5'>
                   <NextLink href={'/editions'}>
-                    <a>Editions</a>
+                    <a className='hover:underline'>Editions</a>
                   </NextLink>
                 </li>
                 <li className='px-5'>
                   <NextLink href={'/agency'}>
-                    <a>Agency</a>
+                    <a className='hover:underline'>Agency</a>
                   </NextLink>
                 </li>
               </ul>

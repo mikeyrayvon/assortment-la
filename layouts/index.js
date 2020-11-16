@@ -7,7 +7,7 @@ import Footer from 'components/Footer';
 const DefaultLayout = ({ settings, children }) => (
   <div className='flex flex-col min-h-screen'>
     <Header />
-    <main className='relative'>{children}</main>
+    <main className='relative py-20'>{children}</main>
     <Footer settings={settings} />
   </div>
 );

@@ -6,9 +6,23 @@ module.exports = {
       black: '#424242',
       white: '#FFFFFF',
     },
+    fontFamily: {
+      'america': ['America', 'monospace'],
+      'query': ['Query', 'sans-serif'],
+    },
     extend: {
       screens: {
         'xxl': '1400px',
+      },
+      height: {
+        '1/2': '50%',
+        '3/4': '75%',
+        '3/2': '150%',
+        '6/5': '120%'
+      },
+      fontSize: {
+        '7xl': '5rem',
+        '8xl': '6rem'
       }
     },
   },
@@ -17,27 +31,5 @@ module.exports = {
     container: false
   },
   plugins: [
-    function ({ addComponents }) {
-      addComponents({
-        '.container': {
-          width: '96%',
-          '@screen sm': {
-            width: '580px',
-          },
-          '@screen md': {
-            width: '720px',
-          },
-          '@screen lg': {
-            width: '960px',
-          },
-          '@screen xl': {
-            width: '1100px',
-          },
-          '@screen xxl': {
-            width: '1380px',
-          },
-        }
-      })
-    }
   ]
 }
