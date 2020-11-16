@@ -33,7 +33,7 @@ const Dot = () => {
   }, [])
 
   return (
-    <img className='dot fixed pointer-events-none' style={{
+    <img className='dot fixed pointer-events-none z-50' style={{
       width: 20,
       height: 'auto'
     }} src='/images/dot.svg' />
