@@ -13,6 +13,12 @@ export const linkResolver = (doc) => {
   if (doc.type === 'project') {
     return `/projects/${doc.uid}`
   }
+  if (doc.type === 'talent') {
+    return `/roster/${doc.uid}`
+  }
+  if (doc.type === 'edition') {
+    return `/editions/${doc.uid}`
+  }
   return '/'
 }
 
@@ -20,6 +26,12 @@ export const linkResolver = (doc) => {
 export const hrefResolver = (doc) => {
   if (doc.type === 'project') {
     return '/projects/[uid]'
+  }
+  if (doc.type === 'talent') {
+    return '/roster/[uid]'
+  }
+  if (doc.type === 'edition') {
+    return '/editions/[uid]'
   }
   return '/'
 }

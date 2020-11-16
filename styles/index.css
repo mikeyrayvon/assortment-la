@@ -1,0 +1,21 @@
+/* purgecss start ignore */
+
+@tailwind base;
+@tailwind components;
+
+/* purgecss end ignore */
+main {
+  min-height: 80vh;
+}
+.text-content p {
+  margin-bottom: 1rem;
+}
+.superscript {
+  @apply text-base mx-2;
+  vertical-align: super;
+}
+.talent-list-item:last-of-type .talent-list-comma {
+  display: none;
+}
+
+@tailwind utilities;

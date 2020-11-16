@@ -1,19 +1,15 @@
 import React from 'react';
 import Head from 'next/head';
-import Prismic from 'prismic-javascript';
-import { RichText } from 'prismic-reactjs';
 
-// Project components & functions
-import DefaultLayout from 'layouts';
-import { ProjectList } from 'components/home';
+import Prismic from 'prismic-javascript';
 import { Client } from 'utils/prismicHelpers';
 
-/**
- * Homepage component
- */
-const Landing = ({ projects }) => {
+import DefaultLayout from 'layouts';
+import ProjectList from 'components/ProjectList';
+
+const Landing = ({ settings, projects }) => {
   return (
-    <DefaultLayout>
+    <DefaultLayout settings={settings}>
       <Head>
         <title>Assortment</title>
       </Head>
@@ -26,17 +22,20 @@ export async function getStaticProps({ preview = null, previewData = {} }) {
 
   const { ref } = previewData
 
-  const client = Client()
+  const settings = await Client().getSingle('settings') || {}
 
-  const projects = await client.query(
+  const projects = await Client().query(
     Prismic.Predicates.at('document.type', 'project'), {
-      orderings: '[my.post.date desc]',
+      orderings: '[my.project.date desc]',
       ...(ref ? { ref } : null)
     },
-  )
+  ).catch(error => {
+    console.log(error)
+  }) || {}
 
   return {
     props: {
+      settings,
       projects: projects ? projects.results : [],
       preview
     }

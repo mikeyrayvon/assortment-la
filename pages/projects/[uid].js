@@ -1,34 +1,39 @@
 import React from 'react';
+import Prismic from 'prismic-javascript'
 import Head from 'next/head';
 import { RichText } from 'prismic-reactjs';
 
 import { queryRepeatableDocuments } from 'utils/queries'
 
-// Project components
 import DefaultLayout from 'layouts';
+import ProjectSlider from 'components/ProjectSlider';
+import ProjectList from 'components/ProjectList';
 
-// Project functions & styles
 import { Client } from 'utils/prismicHelpers';
-import { projectStyles } from 'styles';
 
-/**
- * Post page component
- */
-const Project = ({ project }) => {
+const Project = ({ settings, project, talent, relatedProjects }) => {
+
   if (project && project.data) {
-    const hasTitle = RichText.asText(project.data.title).length !== 0;
-    const title = hasTitle ? RichText.asText(project.data.title) : 'Untitled';
+
+    let title = 'Assortment'
+
+    if (project.data.title) {
+      title += ` | ${project.data.title}`
+    }
+
+    if (talent.data) {
+      title += ` | ${talent.data.name}`
+    }
 
     return (
-      <DefaultLayout>
+      <DefaultLayout settings={settings}>
         <Head>
           <title>{title}</title>
         </Head>
-        <div className='main'>
-          <div className='outer-container'>
-            <h1>{title}</h1>
-          </div>
-        </div>
+        <ProjectSlider project={project} talent={talent} />
+        {relatedProjects.length > 0 &&
+          <ProjectList projects={relatedProjects} />
+        }
       </DefaultLayout>
     );
   }
@@ -38,11 +43,36 @@ const Project = ({ project }) => {
 
 export async function getStaticProps({ params, preview = null, previewData = {} }) {
   const { ref } = previewData
+
+  const settings = await Client().getSingle('settings') || {}
+
   const project = await Client().getByUID('project', params.uid, ref ? { ref } : null) || {}
+
+  let talent, relatedProjects
+
+  if (project.data.talent) {
+
+    talent = await Client().getByUID('talent', project.data.talent.uid, ref ? { ref } : null) || {}
+
+    relatedProjects = await Client().query([
+      Prismic.Predicates.at('document.type', 'project'),
+      Prismic.Predicates.at('my.project.talent', project.data.talent.id),
+      Prismic.Predicates.not('document.id', project.id)
+    ], {
+      ...(ref ? { ref } : null)
+    }).catch(error => {
+      console.log(error)
+    }) || {}
+
+  }
+
   return {
     props: {
+      settings,
       preview,
-      project
+      project,
+      talent,
+      relatedProjects: relatedProjects ? relatedProjects.results : [],
     }
   }
 }
