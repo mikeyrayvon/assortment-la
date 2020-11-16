@@ -38,7 +38,8 @@ main {
   height: 16px
 }
 
-.talent-list-item:last-of-type .talent-list-comma {
+.talent-list-item:last-of-type > .comma,
+.talent-service:last-of-type > .comma {
   display: none;
 }
 

@@ -8,7 +8,6 @@ import Clock from 'components/Clock'
 import Weather from 'components/Weather'
 
 const Header = ({ settings }) => {
-  console.log(settings)
   return (
     <header className='fixed w-full top-0 left-0 z-30 pt-8'>
       <Container>
