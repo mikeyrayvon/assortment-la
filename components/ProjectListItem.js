@@ -12,7 +12,9 @@ const ProjectListItem = ({ project }) => {
           href={hrefResolver(project)}
         >
           <a>
-            <img className='project-list-image object-contain' src={project.data.main_image.url} alt={project.data.title} />
+            <picture>
+              <img className='project-list-image object-contain' src={project.data.main_image.url} alt={project.data.title} />
+            </picture>
           </a>
         </NextLink>
       </div>
