@@ -3,7 +3,7 @@ import { gsap } from 'gsap'
 
 const Dot = () => {
   let ball, pos, mouse
-  const speed = 0.1
+  const speed = 0.05
   const fpms = 60 / 1000
 
   useEffect(() => {
