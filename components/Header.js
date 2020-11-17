@@ -1,33 +1,42 @@
 import { useState, useEffect } from 'react'
 import { default as NextLink } from 'next/link'
+import { gsap } from 'gsap'
+import { ScrollTrigger } from 'gsap/dist/ScrollTrigger.js'
+
+gsap.registerPlugin(ScrollTrigger);
+gsap.core.globals('ScrollTrigger', ScrollTrigger);
 
 import { hrefResolver, linkResolver } from 'prismic-configuration'
 
 import Container from 'components/Container'
 
 const Header = ({ settings }) => {
-  const [topPos, setTopPos] = useState(0)
-  const [scale, setScale] = useState(2)
-  let headerTop
-
   useEffect (()=>{
-    let header = document.querySelector('header');
-    let rect = header.getBoundingClientRect();
-    let headerTop = rect.top
+    gsap.from('header', {
+      scrollTrigger: {
+        scrub: true,
+        start: 0,
+        end: 400
+      },
+      translateY: '400px',
+      transformOrigin: 'center top',
+      ease: 'power1.inOut'
+    });
 
-    document.addEventListener('scroll', e => {
-      let scrollTop = document.scrollingElement.scrollTop
-      setTopPos(scrollTop)
-      let newScale = ((((scrollTop - headerTop) * -1) / headerTop) + 1)
-      console.log(newScale)
-      setScale(newScale)
-    })
+    gsap.from('nav', {
+      scrollTrigger: {
+        scrub: true,
+        start: 100,
+        end: 350
+      },
+      scale: 2,
+      transformOrigin: 'center top',
+      ease: 'power1.inOut'
+    });
   },[])
 
   return (
-    <header className='fixed w-full top-0 left-0 z-30 pt-8' style={{
-      //marginTop: '40vh'
-    }}>
+    <header className={'w-full top-0 left-0 z-30 pt-8 fixed'}>
       <Container>
         <div className='text-center flex flex-col items-center z-30'>
           <h1>
@@ -35,9 +44,7 @@ const Header = ({ settings }) => {
               <a className='uppercase text-2xl'><img className='header-logo' src='/images/assortment-logo.svg' /></a>
             </NextLink>
           </h1>
-          <nav style={{
-            //transform: 'scale(' + scale + ')', transformOrigin: 'center top'
-          }}>
+          <nav>
             <ul className='flex text-5xl font-query'>
               <li className='px-2'>
                 <NextLink href={'/roster'}>

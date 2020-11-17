@@ -7,7 +7,9 @@ const DefaultLayout = ({ settings, children }) => (
   <div className='flex flex-col min-h-screen'>
     <CityStatus settings={settings} />
     <Header settings={settings} />
-    <main className='relative py-20'>{children}</main>
+    <main className='relative py-20' style={{
+      marginTop: '700px'
+    }}>{children}</main>
     <Footer settings={settings} />
     <Dot />
   </div>
