@@ -10,30 +10,32 @@ import { hrefResolver, linkResolver } from 'prismic-configuration'
 
 import Container from 'components/Container'
 
-const Header = ({ settings }) => {
-  useEffect (()=>{
-    gsap.from('header', {
-      scrollTrigger: {
-        scrub: true,
-        start: 0,
-        end: 400
-      },
-      translateY: '400px',
-      transformOrigin: 'center top',
-      ease: 'power1.inOut'
-    });
+const Header = ({ settings, pathname }) => {
+  if (pathname === '/') {
+    useEffect (()=>{
+      gsap.from('header', {
+        scrollTrigger: {
+          scrub: true,
+          start: 0,
+          end: 400
+        },
+        translateY: '400px',
+        transformOrigin: 'center top',
+        ease: 'power1.inOut'
+      });
 
-    gsap.from('nav', {
-      scrollTrigger: {
-        scrub: true,
-        start: 100,
-        end: 350
-      },
-      scale: 2,
-      transformOrigin: 'center top',
-      ease: 'power1.inOut'
-    });
-  },[])
+      gsap.from('nav', {
+        scrollTrigger: {
+          scrub: true,
+          start: 100,
+          end: 350
+        },
+        scale: 2,
+        transformOrigin: 'center top',
+        ease: 'power1.inOut'
+      });
+    },[])
+  }
 
   return (
     <header className={'w-full top-0 left-0 z-30 pt-8 fixed'}>
