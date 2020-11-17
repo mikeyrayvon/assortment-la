@@ -5,14 +5,17 @@ import { Client } from 'utils/prismicHelpers'
 
 import DefaultLayout from 'layouts';
 import EditionList from 'components/EditionList';
+import EditionFeaturedItem from 'components/EditionFeaturedItem';
 
 const Editions = ({ settings, editions }) => {
+  const pastEditions = editions.slice(1)
   return (
     <DefaultLayout settings={settings}>
       <Head>
         <title>Assortment | Editions</title>
       </Head>
-      <EditionList editions={editions} />
+      <EditionFeaturedItem edition={editions[0]} />
+      <EditionList editions={pastEditions} />
     </DefaultLayout>
   );
 };
