@@ -2,9 +2,8 @@ import { default as NextLink } from 'next/link'
 
 import { hrefResolver, linkResolver } from 'prismic-configuration'
 
-const TalentListItem = ({ talent, setHoveredTalent, services, filterId }) => {
-  //console.log(filterId, services)
-  const hasFilterId = !filterId ? true : talent.data.services.some(service => filterId === service.service.id)
+const TalentListItem = ({ talent, setHoveredTalent, filterId }) => {
+  const hasFilterId = !filterId ? true : talent.data.services.some(({service: service}) => filterId === service.id)
   return (
     <li className={'talent-list-item text-7xl inline-block' + (hasFilterId ? '' : ' invisible pointer-events-none')}>
       <NextLink
@@ -18,11 +17,10 @@ const TalentListItem = ({ talent, setHoveredTalent, services, filterId }) => {
       </NextLink>
       {talent.data.services.length > 0 &&
         <span className='superscript'>
-          ({talent.data.services.map((talentService, index) => {
-            const serviceDoc = services.find(serviceDoc => serviceDoc.id === talentService.service.id)
+          ({talent.data.services.map(({service: service}) => {
             return (
-              <span className='talent-service' key={`talent_${talent.id}_service_${serviceDoc.id}`}>
-                <span>{serviceDoc.data.title}</span>
+              <span className='talent-service' key={`talent_${talent.id}_service_${service.id}`}>
+                <span>{service.data.title}</span>
                 <span className='comma'>,&nbsp;</span>
               </span>
             )

@@ -26,6 +26,9 @@ export async function getStaticProps({ preview = null, previewData = {} }) {
   const projects = await Client().query(
     Prismic.Predicates.at('document.type', 'project'), {
       orderings: '[my.project.date desc]',
+      pageSize: 100,
+      fetch: ['project.title','project.talent','project.main_image'],
+      fetchLinks: 'talent.name',
       ...(ref ? { ref } : null)
     },
   ).catch(error => {

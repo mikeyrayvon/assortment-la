@@ -19,13 +19,13 @@ const EditionFeaturedItem = ({ edition }) => {
               </a></NextLink>
             </div>
             <div className='flex sm:order-1 sm:w-4/12 sm:px-4 sm:justify-center sm:flex-col'>
-              <h3 className='w-8/12 text-5xl font-query w-9/12'>
+              <h3 className='w-8/12 text-5xl font-query sm:w-full md:w-9/12'>
                 <NextLink
                   as={linkResolver(edition)}
                   href={hrefResolver(edition)}
                 ><a>{edition.data.title}</a></NextLink>
               </h3>
-              <div className='w-4/12 pt-6 sm:w-1/2 sm:self-end'><span>{edition.data.attributes}</span></div>
+              <div className='w-4/12 pt-6 sm:w-2/3 md:w-1/2 sm:self-end'><span>{edition.data.attributes}</span></div>
             </div>
           </div>
         </div>

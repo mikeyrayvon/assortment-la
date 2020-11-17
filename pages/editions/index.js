@@ -8,7 +8,9 @@ import EditionList from 'components/EditionList';
 import EditionFeaturedItem from 'components/EditionFeaturedItem';
 
 const Editions = ({ settings, editions }) => {
+
   const pastEditions = editions.slice(1)
+
   return (
     <DefaultLayout settings={settings}>
       <Head>
@@ -28,7 +30,9 @@ export async function getStaticProps({ preview = null, previewData = {} }) {
 
   const editions = await Client().query(
     Prismic.Predicates.at('document.type', 'edition'), {
-      orderings: '[my.edition.title]',
+      orderings : '[document.first_publication_date]',
+      pageSize: 100,
+      fetch: ['edition.title', 'edition.attributes', 'edition.main_image'],
       ...(ref ? { ref } : null)
     },
   ).catch(error => {

@@ -26,14 +26,11 @@ export async function getStaticProps({ preview = null, previewData = {} }) {
   const roster = await Client().query(
     Prismic.Predicates.at('document.type', 'talent'), {
       orderings: '[my.talent.name]',
+      pageSize: 100,
+      fetch: ['talent.name','talent.services','talent.main_image'],
+      fetchLinks: 'service.title',
       ...(ref ? { ref } : null)
     },
-  ).catch(error => {
-    console.log(error)
-  }) || {}
-
-  const services = await Client().query(
-    Prismic.Predicates.at('document.type', 'service')
   ).catch(error => {
     console.log(error)
   }) || {}
@@ -42,8 +39,7 @@ export async function getStaticProps({ preview = null, previewData = {} }) {
     props: {
       preview,
       settings,
-      roster: roster ? roster.results : [],
-      services: services ? services.results : [],
+      roster: roster ? roster.results : []
     }
   }
 }

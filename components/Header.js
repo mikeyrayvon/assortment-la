@@ -12,12 +12,12 @@ const Header = ({ settings }) => {
     <header className='fixed w-full top-0 left-0 z-30 pt-8'>
       <Container>
         <div className='flex justify-between'>
-          <div className='w-4/12'>
+          <div className='w-4/12 self-start'>
             {settings && settings.data &&
               <Clock city={settings.data.current_city} />
             }
           </div>
-          <div className='w-4/12 text-center flex flex-col items-center'>
+          <div className='w-4/12 text-center flex flex-col items-center z-30'>
             <h1>
               <NextLink href={'/'}>
                 <a className='uppercase text-2xl'><img className='header-logo' src='/images/assortment-logo.svg' /></a>
@@ -45,7 +45,7 @@ const Header = ({ settings }) => {
               </ul>
             </nav>
           </div>
-          <div className='w-4/12 text-right'>
+          <div className='w-4/12 text-right self-start'>
             {settings && settings.data &&
               <Weather city={settings.data.current_city} />
             }

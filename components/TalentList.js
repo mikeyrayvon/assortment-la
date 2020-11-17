@@ -2,16 +2,29 @@ import { useState } from 'react'
 import TalentListItem from './TalentListItem'
 import TalentListImage from './TalentListImage'
 
-const TalentList = ({ roster, services }) => {
+const TalentList = ({ roster }) => {
   const [filterId, setFilterId] = useState(false)
   const [hoveredTalent, setHoveredTalent] = useState(false)
+  
+  let servicesList = []
+
+  for (var i = 0; i < roster.length; i++) {
+    const talent = roster[i]
+    const services = talent.data.services
+    for (var j = 0; j < services.length; j++) {
+      const service = services[j].service
+      if (!servicesList.some(listService => listService.id === service.id)) {
+        servicesList.push(service)
+      }
+    }
+  }
 
   return (
     <div className='container mx-auto'>
-      {services.length > 0 &&
+      {servicesList.length > 0 &&
         <div className='text-center'>
           <span>Filter by </span>
-          {services.map(service => {
+          {servicesList.map((service) => {
             return (
               <span className='filter-service uppercase' key={service.id}>
                 <span className={'cursor-pointer' + (filterId === service.id ? ' underline' : '')} onClick={() => {
@@ -38,7 +51,7 @@ const TalentList = ({ roster, services }) => {
       }}>
         <ul className='relative z-10 text-center'>
           {roster.map(talent => (
-            <TalentListItem talent={talent} setHoveredTalent={setHoveredTalent} services={services} filterId={filterId} key={talent.id} />
+            <TalentListItem talent={talent} setHoveredTalent={setHoveredTalent} filterId={filterId} key={talent.id} />
           ))}
         </ul>
       </div>
