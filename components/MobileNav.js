@@ -4,7 +4,7 @@ const MobileNav = ({ navActive }) => {
   return (
     <div className={'mobile-nav fixed inset-0 z-0 bg-white flex justify-center items-center text-center' + (navActive ? ' nav-active' : '')}>
       <nav>
-        <ul className='text-5xl font-query'>
+        <ul className='text-6xl font-query'>
           <li className='px-2'>
             <NextLink href={'/roster'}>
               <a className='hover:underline'>Roster</a>

@@ -5,7 +5,7 @@ import { hrefResolver, linkResolver } from 'prismic-configuration'
 const TalentListItem = ({ talent, setHoveredTalent, filterId }) => {
   const hasFilterId = !filterId ? true : talent.data.services.some(({service: service}) => filterId === service.id)
   return (
-    <li className={'talent-list-item text-4xl md:text-7xl inline-block' + (hasFilterId ? '' : ' invisible pointer-events-none')}>
+    <li className={'talent-list-item text-4xl sm:text-5xl md:text-7xl inline-block' + (hasFilterId ? '' : ' invisible pointer-events-none')}>
       <NextLink
         as={linkResolver(talent)}
         href={hrefResolver(talent)}

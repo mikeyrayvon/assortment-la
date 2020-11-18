@@ -17,7 +17,7 @@ const Agency = ({ settings, agency }) => {
       </Head>
       {agency && agency.data &&
         <Container>
-          <div className='text-7xl font-query mb-20'>
+          <div className='text-4xl sm:text-5xl md:text-7xl font-query mb-20'>
             {RichText.render(agency.data.body, linkResolver)}
           </div>
         </Container>
