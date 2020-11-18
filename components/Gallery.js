@@ -23,7 +23,7 @@ const Gallery = ({ docId, gallery }) => {
   }
 
   return (
-    <div className='gallery fixed bg-white inset-0 z-50 flex items-center'>
+    <div className='gallery fixed bg-white inset-0 z-50 flex items-center hidden'>
       <Swiper {...params}>
         {gallery.map((item, index) => {
           return (
