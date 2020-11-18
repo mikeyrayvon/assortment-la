@@ -1,35 +1,49 @@
-import Slider from 'react-slick'
+import SwiperCore, { Mousewheel } from 'swiper'
+import { Swiper, SwiperSlide } from 'swiper/react'
+
+SwiperCore.use([Mousewheel])
 
 import ProjectSliderItem from './ProjectSliderItem'
-import Container from 'components/Container'
+import Container from './Container'
+import Gallery from './Gallery'
 
 const ProjectSlider = ({ project, talent }) => {
-  const settings = {
-    dots: false,
-    arrows: false,
-    infinite: false,
-    slidesToShow: 1,
-    variableWidth: true,
-    slidesToScroll: 1
+  const params = {
+    spaceBetween: 0,
+    slidesPerView: 'auto',
+    centeredSlides: false,
+    mousewheel: {
+      forceToAxis: true,
+      preventSwipeThresholdDelta: 120,
+      preventSwipeThresholdTime: 3000
+    },
+    slideToClickedSlide: true,
   }
 
   if (project && project.data) {
     return (
-      <Container>
-        <Slider {...settings}>
-          <div>
-            <div className='project-slide pr-12 flex items-center w-auto'>
-              <h1>
-                <span className='font-query text-5xl'>{project.data.title}</span> <br />
-                {talent && talent.data &&
-                  <span className='text-4xl'>{talent.data.name}</span>
-                }
-              </h1>
-            </div>
-          </div>
-          {project.data.image_gallery.map((item, index) => <ProjectSliderItem item={item} key={`image_gallery_${project.id}_${index}`} />)}
-        </Slider>
-      </Container>
+      <>
+        <Container>
+          <Swiper {...params}>
+            <SwiperSlide>
+              <div className='project-slide pr-12 flex items-center w-auto'>
+                <h1>
+                  <span className='font-query text-5xl'>{project.data.title}</span> <br />
+                  {talent && talent.data &&
+                    <span className='text-4xl'>{talent.data.name}</span>
+                  }
+                </h1>
+              </div>
+            </SwiperSlide>
+            {project.data.image_gallery.map((item, index) => (
+              <SwiperSlide key={`image_gallery_${project.id}_${index}`}>
+                <ProjectSliderItem item={item} />
+              </SwiperSlide>
+            ))}
+          </Swiper>
+        </Container>
+        <Gallery docId={project.id} gallery={project.data.image_gallery} />
+      </>
     )
   }
   return null

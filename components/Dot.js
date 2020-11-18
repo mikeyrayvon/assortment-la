@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { gsap } from 'gsap'
+import { isMobile } from 'react-device-detect'
 
 const Dot = () => {
   let ball, pos, mouse
@@ -33,10 +34,7 @@ const Dot = () => {
   }, [])
 
   return (
-    <img className='dot fixed pointer-events-none z-50' style={{
-      width: 20,
-      height: 'auto'
-    }} src='/images/dot.svg' />
+    <img className={'dot fixed pointer-events-none z-50' + (isMobile ? ' hidden' : '')} src='/images/dot.svg' />
   )
 }
 

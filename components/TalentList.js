@@ -1,11 +1,12 @@
 import { useState } from 'react'
 import TalentListItem from './TalentListItem'
 import TalentListImage from './TalentListImage'
+import { isMobile } from 'react-device-detect'
 
 const TalentList = ({ roster }) => {
   const [filterId, setFilterId] = useState(false)
   const [hoveredTalent, setHoveredTalent] = useState(false)
-  
+
   let servicesList = []
 
   for (var i = 0; i < roster.length; i++) {
@@ -55,11 +56,13 @@ const TalentList = ({ roster }) => {
           ))}
         </ul>
       </div>
-      <ul className='pointer-events-none'>
-        {roster.map(talent => (
-          <TalentListImage talent={talent} key={`${talent.id}_image`} hoveredTalent={hoveredTalent} />
-        ))}
-      </ul>
+      {!isMobile && 
+        <ul className='pointer-events-none'>
+          {roster.map(talent => (
+            <TalentListImage talent={talent} key={`${talent.id}_image`} hoveredTalent={hoveredTalent} />
+          ))}
+        </ul>
+      }
     </div>
   )
 }

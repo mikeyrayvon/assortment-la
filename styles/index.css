@@ -1,4 +1,5 @@
 @import 'fonts.css';
+@import 'swiper-bundle.min.css';
 
 /* purgecss start ignore */
 
@@ -10,6 +11,7 @@
 html, body {
   @apply font-america;
   font-size: 12px;
+  overflow-x: hidden;
 }
 
 main {
@@ -18,7 +20,7 @@ main {
 }
 
 .container {
-  width: 96%;
+  width: 95%;
 }
 
 .text-content p {
@@ -29,13 +31,46 @@ main {
   @apply underline;
 }
 
+.dot {
+  width: 20px;
+  height: auto;
+}
+
 .superscript {
-  @apply text-base font-america mx-2;
+  @apply text-sm font-america mx-2;
   vertical-align: super;
 }
 
 .header-logo {
   height: 16px
+}
+
+.nav-trigger {
+  width: 44px;
+  height: 12px;
+}
+
+.nav-trigger-bar {
+  transition: transform 200ms ease-in-out;
+}
+
+.nav-trigger.nav-active .nav-trigger-bar:first-of-type {
+  transform: rotate(10deg) translateY(150%);
+}
+
+.nav-trigger.nav-active .nav-trigger-bar:last-of-type {
+  transform: rotate(-10deg) translateY(-150%);
+}
+
+.mobile-nav {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 200ms ease-in-out;
+}
+
+.mobile-nav.nav-active {
+  opacity: 1;
+  pointer-events: auto;
 }
 
 .talent-list-item:last-of-type > .comma,
@@ -48,17 +83,47 @@ main {
   height: 270px;
 }
 
+.swiper-container {
+  overflow: visible;
+}
+
+.swiper-slide {
+  width: auto;
+}
+
+.gallery .swiper-wrapper {
+  align-items: center
+}
+
+.gallery .swiper-slide {
+  opacity: .2;
+  transition: opacity 300ms ease-in-out;
+}
+
+.gallery .swiper-slide-active {
+  opacity: 1
+}
+
+.gallery .swiper-slide img {
+  max-height: 700px;
+  width: auto;
+}
+
 input {
   max-width: 450px;
 }
 
 @screen sm {
   .container {
-    width: 580px;
+    width: 620px;
   }
 
   .edition-list-image-holder {
     height: 350px;
+  }
+
+  .superscript {
+    @apply text-base;
   }
 }
 

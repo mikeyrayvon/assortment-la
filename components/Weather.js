@@ -29,7 +29,7 @@ const Weather = ({ city }) => {
 
   if (forecast && forecast.weather && forecast.wind) {
     return (
-      <div>
+      <div className='text-right'>
         <div>
           <span className='capitalize'>{ forecast.weather[0].description }</span>
         </div>

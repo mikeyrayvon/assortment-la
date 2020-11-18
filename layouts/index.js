@@ -1,20 +1,22 @@
 import { useRouter } from 'next/router'
 
 import Header from 'components/Header'
-import CityStatus from 'components/CityStatus'
 import Footer from 'components/Footer'
 import Dot from 'components/Dot'
 
+import { useWindowSize } from 'utils/hooks'
+
 const DefaultLayout = ({ settings, children }) => {
   const router = useRouter()
+  const windowSize = useWindowSize()
+  const shouldAnimate = router.pathname === '/' && windowSize.width >= 768
 
   return (
     <div className='flex flex-col min-h-screen'>
-      <CityStatus settings={settings} />
-      <Header settings={settings} pathname={router.pathname}/>
+      <Header settings={settings} shouldAnimate={shouldAnimate} />
       <main
-        className='relative py-20 mt-40'
-        style={router.pathname === '/' ? { marginTop: '700px' } : {}}
+        className='relative py-20'
+        style={shouldAnimate ? { marginTop: '60vh' } : {}}
       >{children}</main>
       <Footer settings={settings} />
       <Dot />
