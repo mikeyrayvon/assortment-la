@@ -17,7 +17,7 @@ const Edition = ({ settings, edition }) => {
     if (edition.data.title) {
       title += ` | ${edition.data.title}`
     }
-    console.log(edition.data.gallery)
+
     return (
       <DefaultLayout settings={settings}>
         <Head>
