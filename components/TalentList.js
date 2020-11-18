@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import TalentListItem from './TalentListItem'
 import TalentListImage from './TalentListImage'
-import { isMobile } from 'react-device-detect'
+import { isBrowser } from 'react-device-detect'
 
 const TalentList = ({ roster }) => {
   const [filterId, setFilterId] = useState(false)
@@ -56,7 +56,7 @@ const TalentList = ({ roster }) => {
           ))}
         </ul>
       </div>
-      {!isMobile && 
+      {isBrowser && 
         <ul className='pointer-events-none'>
           {roster.map(talent => (
             <TalentListImage talent={talent} key={`${talent.id}_image`} hoveredTalent={hoveredTalent} />
