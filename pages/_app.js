@@ -1,9 +1,13 @@
-import 'slick-carousel/slick/slick.css'
-import 'slick-carousel/slick/slick-theme.css'
-import '../styles/index.css'
+import 'styles/index.css'
+import Dot from 'components/Dot'
 
 function MyApp({ Component, pageProps }) {
-  return <Component {...pageProps} />
+  return (
+    <>
+      <Dot />
+      <Component {...pageProps} />
+    </>
+  )
 }
 
 export default MyApp

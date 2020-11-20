@@ -8,7 +8,8 @@ gsap.core.globals('ScrollTrigger', ScrollTrigger)
 
 import Container from './Container'
 
-const Header = ({ shouldAnimate }) => {
+const HeaderNav = ({ shouldAnimate }) => {
+  console.log('shouldAnimate ', shouldAnimate)
   useEffect (()=>{
     if (shouldAnimate) {
       gsap.from('.header-nav', {
@@ -71,4 +72,4 @@ const Header = ({ shouldAnimate }) => {
   )
 }
 
-export default Header
+export default HeaderNav

@@ -5,7 +5,7 @@ import CityStatus from './CityStatus'
 import HeaderNav from './HeaderNav'
 import MobileNav from './MobileNav'
 
-const Header = ({ settings, pathname }) => {
+const Header = ({ settings, pathname, shouldAnimate }) => {
   const [navActive, setNavActive] = useState(false)
 
   return (
@@ -20,7 +20,7 @@ const Header = ({ settings, pathname }) => {
       }} />
       <div className='relative'>
         <CityStatus settings={settings} />
-        <HeaderNav pathname={pathname} />
+        <HeaderNav pathname={pathname} shouldAnimate={shouldAnimate} />
       </div>
     </header>
   )

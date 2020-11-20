@@ -47,7 +47,10 @@ export async function getStaticProps({ params, preview = null, previewData = {} 
 
   const settings = await Client().getSingle('settings') || {}
 
-  const talent = await Client().getByUID('talent', params.uid, ref ? { ref } : null) || {}
+  const talent = await Client().getByUID('talent', params.uid, {
+    fetchLinks: 'service.title',
+    ...(ref ? { ref } : null)
+  }) || {}
 
   const relatedProjects = await Client().query([
     Prismic.Predicates.at('document.type', 'project'),
@@ -62,7 +65,7 @@ export async function getStaticProps({ params, preview = null, previewData = {} 
     Prismic.Predicates.at('document.type', 'edition'),
     Prismic.Predicates.at('my.edition.talent', talent.id)
   ], {
-    ...(ref ? { ref } : null)
+    ...(ref ? { ref } : null),
   }).catch(error => {
     console.log(error)
   }) || {}
