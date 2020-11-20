@@ -5,7 +5,7 @@ SwiperCore.use([Mousewheel])
 
 import GalleryItem from './GalleryItem'
 
-const Gallery = ({ docId, gallery }) => {
+const Gallery = ({ docId, gallery, isActive, closeGallery }) => {
   console.log(gallery)
 
   const params = {
@@ -23,7 +23,8 @@ const Gallery = ({ docId, gallery }) => {
   }
 
   return (
-    <div className='gallery fixed bg-white inset-0 z-50 flex items-center hidden'>
+    <div className={'gallery fixed bg-white inset-0 z-50 flex items-center' + (isActive ? '' : ' hidden')}>
+      <div onClick={() => { closeGallery() }}>X</div>
       <Swiper {...params}>
         {gallery.map((item, index) => {
           return (

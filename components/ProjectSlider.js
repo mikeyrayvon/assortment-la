@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import SwiperCore, { Mousewheel } from 'swiper'
 import { Swiper, SwiperSlide } from 'swiper/react'
 
@@ -8,6 +9,8 @@ import Container from './Container'
 import Gallery from './Gallery'
 
 const ProjectSlider = ({ project, talent }) => {
+  const [galleryActive, setGalleryActive] = useState(false)
+
   const params = {
     spaceBetween: 0,
     slidesPerView: 'auto',
@@ -37,12 +40,17 @@ const ProjectSlider = ({ project, talent }) => {
             </SwiperSlide>
             {project.data.image_gallery.map((item, index) => (
               <SwiperSlide key={`image_gallery_${project.id}_${index}`}>
-                <ProjectSliderItem item={item} />
+                <ProjectSliderItem item={item} openGallery={() => { setGalleryActive(true) }}/>
               </SwiperSlide>
             ))}
           </Swiper>
         </Container>
-        <Gallery docId={project.id} gallery={project.data.image_gallery} />
+        <Gallery
+          docId={project.id}
+          gallery={project.data.image_gallery}
+          isActive={galleryActive}
+          closeGallery={() => { setGalleryActive(false) }}
+        />
       </>
     )
   }
