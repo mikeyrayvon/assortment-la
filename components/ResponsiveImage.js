@@ -1,7 +1,7 @@
 const ResponsiveImage = ({image, sizes, pictureClass, imgClass}) => {
   if (image && image.url) {
     const imageUrl = new URL(image.url)
-    const imagePath = imageUrl.origin + imageUrl.pathname + '?auto=compress,format'
+    const imagePath = imageUrl.origin + imageUrl.pathname + '?auto=compress,format&'
 
     return (
       <picture className={pictureClass}>
