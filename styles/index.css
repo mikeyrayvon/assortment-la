@@ -79,8 +79,8 @@ main {
 }
 
 .project-list-image {
-  width: 270px;
-  height: 270px;
+  width: 100%;
+  height: 360px;
 }
 
 .swiper-container {
@@ -137,8 +137,7 @@ input {
   }
 
   .project-list-image {
-    width: 350px;
-    height: 350px;
+    height: 372px;
   }
 
   .edition-list-image-holder {
@@ -162,8 +161,7 @@ input {
   }
 
   .project-list-image {
-    width: 450px;
-    height: 450px;
+    height: 492px;
   }
 
   .edition-list-image-holder {
@@ -177,8 +175,7 @@ input {
   }
 
   .project-list-image {
-    width: 500px;
-    height: 480px;
+    height: 562px;
   }
 
   .edition-list-image-holder {
@@ -186,14 +183,13 @@ input {
   }
 }
 
-@screen xxl {
+@screen 2xl {
   .container {
-    width: 1380px;
+    width: 1400px;
   }
 
   .project-list-image {
-    width: 600px;
-    height: 550px;
+    height: 688px;
   }
 
   .edition-list-image-holder {

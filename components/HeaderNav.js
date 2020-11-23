@@ -9,7 +9,6 @@ gsap.core.globals('ScrollTrigger', ScrollTrigger)
 import Container from './Container'
 
 const HeaderNav = ({ shouldAnimate }) => {
-  console.log('shouldAnimate ', shouldAnimate)
   useEffect (()=>{
     if (shouldAnimate) {
       gsap.from('.header-nav', {
@@ -34,7 +33,7 @@ const HeaderNav = ({ shouldAnimate }) => {
         ease: 'power1.inOut'
       });
     }
-  },[])
+  },[shouldAnimate])
 
   return (
     <div className={'header-nav absolute w-full top-0 left-0 z-30 pt-4 md:pt-8'}>
