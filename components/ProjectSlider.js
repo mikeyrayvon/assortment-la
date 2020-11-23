@@ -12,31 +12,30 @@ const ProjectSlider = ({ project, talent }) => {
   const [galleryActive, setGalleryActive] = useState(false)
 
   const params = {
-    spaceBetween: 0,
+    spaceBetween: 48,
     slidesPerView: 'auto',
     centeredSlides: false,
     mousewheel: {
       forceToAxis: true,
       preventSwipeThresholdDelta: 120,
-      preventSwipeThresholdTime: 3000
+      preventSwipeThresholdTime: 3000,
+      invert: true
     },
     slideToClickedSlide: true,
   }
 
   if (project && project.data) {
     return (
-      <>
+      <section className='project-slider'>
         <Container>
           <Swiper {...params}>
             <SwiperSlide>
-              <div className='project-slide pr-12 flex items-center w-auto'>
-                <h1>
-                  <span className='font-query text-5xl'>{project.data.title}</span> <br />
-                  {talent && talent.data &&
-                    <span className='text-4xl'>{talent.data.name}</span>
-                  }
-                </h1>
-              </div>
+              <h1>
+                <span className='font-query text-5xl'>{project.data.title}</span> <br />
+                {talent && talent.data &&
+                  <span className='text-4xl'>{talent.data.name}</span>
+                }
+              </h1>
             </SwiperSlide>
             {project.data.image_gallery.map((item, index) => (
               <SwiperSlide key={`image_gallery_${project.id}_${index}`}>
@@ -51,7 +50,7 @@ const ProjectSlider = ({ project, talent }) => {
           isActive={galleryActive}
           closeGallery={() => { setGalleryActive(false) }}
         />
-      </>
+      </section>
     )
   }
   return null

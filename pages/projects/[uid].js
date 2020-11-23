@@ -31,7 +31,12 @@ const Project = ({ settings, project, talent, relatedProjects }) => {
         </Head>
         <ProjectSlider project={project} talent={talent} />
         {relatedProjects.length > 0 &&
-          <ProjectList projects={relatedProjects} />
+          <section>
+            <div className='container mx-auto border-t pt-8 mb-32'>
+              <h2>Related Projects</h2>
+            </div>
+            <ProjectList projects={relatedProjects} />
+          </section>
         }
       </DefaultLayout>
     );

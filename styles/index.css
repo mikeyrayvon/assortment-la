@@ -79,8 +79,23 @@ main {
 }
 
 .project-list-image {
+  @apply object-contain;
   width: 100%;
-  height: 360px;
+  height: 353px;
+}
+
+.project-slider {
+  @apply mb-40;
+}
+
+.project-slider .swiper-slide {
+  @apply w-auto self-center mb-40;
+}
+
+.project-slide-image {
+  @apply w-auto h-auto;
+  max-width: 353px;
+  max-height: 353px;
 }
 
 .swiper-container {
@@ -114,10 +129,6 @@ input {
 }
 
 @screen sm {
-  .container {
-    width: 620px;
-  }
-
   .edition-list-image-holder {
     height: 350px;
   }
@@ -128,10 +139,6 @@ input {
 }
 
 @screen md {
-  .container {
-    width: 720px;
-  }
-
   .header-logo {
     height: 18px
   }
@@ -140,14 +147,14 @@ input {
     height: 372px;
   }
 
+  .project-slide-image {
+    max-width: 372px;
+    max-height: 372px;
+  }
+
   .edition-list-image-holder {
     height: 300px;
     max-height: none;
-  }
-
-  .project-slide {
-    height: 500px;
-    width: 500px;
   }
 }
 
@@ -164,6 +171,11 @@ input {
     height: 492px;
   }
 
+  .project-slide-image {
+    max-width: 492px;
+    max-height: 492px;
+  }
+
   .edition-list-image-holder {
     height: 400px;
   }
@@ -178,6 +190,11 @@ input {
     height: 562px;
   }
 
+  .project-slide-image {
+    max-width: 562px;
+    max-height: 562px;
+  }
+
   .edition-list-image-holder {
     height: 500px;
   }
@@ -190,6 +207,11 @@ input {
 
   .project-list-image {
     height: 688px;
+  }
+
+  .project-slide-image {
+    max-width: 688px;
+    max-height: 688px;
   }
 
   .edition-list-image-holder {

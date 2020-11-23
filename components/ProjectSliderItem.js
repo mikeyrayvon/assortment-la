@@ -1,9 +1,20 @@
+import ResponsiveImage from './ResponsiveImage'
+
 const ProjectSliderItem = ({ item, openGallery }) => {
-  if (item.image.url) {
+  if (item.image) {
+    const { image } = item
     return (
-      <picture className='project-slide px-4 flex justify-center items-center mb-20'>
-        <img onClick={() => { openGallery() }} className='object-contain' src={item.image.url} alt={item.image.alt ? item.image.alt : item.caption} />
-      </picture>
+      <ResponsiveImage
+        image={image}
+        sizes={{
+          mobile: 'w=353',
+          md: 'w=474',
+          xl: 'w=538',
+          full: 'w=688'
+        }}
+        pictureClass='mb-20'
+        imgClass='project-slide-image'
+      />
     )
   }
   return null
