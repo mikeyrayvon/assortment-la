@@ -30,8 +30,10 @@
   },
   "license": "Apache-2.0",
   "devDependencies": {
-    "postcss-preset-env": "^6.7.0",
+    "autoprefixer": "^9",
+    "postcss": "^7",
     "slick-carousel": "^1.8.1",
-    "tailwindcss": "^1.9.6"
-  }
+    "tailwindcss": "npm:@tailwindcss/postcss7-compat"
+  },
+  "peerDependencies": {}
 }

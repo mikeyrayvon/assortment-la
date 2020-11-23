@@ -11,9 +11,6 @@ module.exports = {
       'query': ['Query', 'sans-serif'],
     },
     extend: {
-      screens: {
-        'xxl': '1400px',
-      },
       height: {
         '1/2': '50%',
         '3/4': '75%',
