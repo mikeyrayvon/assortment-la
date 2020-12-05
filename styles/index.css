@@ -41,6 +41,10 @@ main {
   vertical-align: super;
 }
 
+.stroke-black path {
+  stroke: #424242
+}
+
 .header-logo {
   height: 16px
 }
@@ -84,12 +88,8 @@ main {
   height: 353px;
 }
 
-.project-slider {
-  @apply mb-40;
-}
-
 .project-slider .swiper-slide {
-  @apply w-auto self-center mb-40;
+  @apply w-auto self-center my-40;
 }
 
 .project-slide-image {
