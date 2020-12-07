@@ -1,10 +1,10 @@
-const ResponsiveImage = ({image, sizes, pictureClass, imgClass}) => {
+const ResponsiveImage = ({image, sizes, pictureClass, imgClass, handleClick}) => {
   if (image && image.url) {
     const imageUrl = new URL(image.url)
     const imagePath = imageUrl.origin + imageUrl.pathname + '?auto=compress,format&'
 
     return (
-      <picture className={pictureClass}>
+      <picture className={pictureClass} onClick={() => { if (handleClick) { handleClick() } }}>
         {sizes && sizes.mobile &&
           <source media="(max-width: 639px)" srcSet={imagePath + sizes.mobile} />
         }
