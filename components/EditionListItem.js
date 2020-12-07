@@ -7,7 +7,7 @@ import { hrefResolver, linkResolver } from 'prismic-configuration'
 const EditionListItem = ({ edition }) => {
   if (edition && edition.data) {
     return (
-      <div className='w-full sm:w-6/12 md:w-4/12 mb-20 sm:mb-40 px-4'>
+      <div className='w-full sm:w-6/12 md:w-4/12 mb-20 sm:mb-40 px-6'>
         <div className='mb-4 edition-list-image-holder'>
           {edition.data.main_image &&
             <NextLink
