@@ -12,8 +12,8 @@ const ProjectSliderItem = ({ item, openGallery }) => {
           xl: 'w=538',
           full: 'w=688'
         }}
-        pictureClass='mb-20'
         imgClass='project-slide-image'
+        handleClick={() => { openGallery() }}
       />
     )
   }

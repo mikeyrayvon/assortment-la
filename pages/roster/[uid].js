@@ -7,6 +7,7 @@ import DefaultLayout from 'layouts'
 import ProjectSlider from 'components/ProjectSlider'
 import TalentHeader from 'components/TalentHeader'
 import EditionList from 'components/EditionList'
+import SectionHeader from 'components/SectionHeader'
 
 import { hrefResolver, linkResolver } from 'prismic-configuration'
 import { Client } from 'utils/prismicHelpers'
@@ -28,12 +29,20 @@ const Talent = ({ settings, talent, relatedProjects, relatedEditions }) => {
         </Head>
         <TalentHeader talent={talent} />
         {relatedProjects.length > 0 &&
-          relatedProjects.map(project => (
-            <ProjectSlider project={project} talent={talent} key={project.id} />
+          relatedProjects.map((project, index) => (
+            <section key={`${talent.id}_${project.id}`}>
+              <SectionHeader />
+              <ProjectSlider project={project} talent={talent} />
+            </section>
           ))
         }
         {relatedEditions.length > 0 &&
-          <EditionList editions={relatedEditions} />
+          <section>
+            <SectionHeader />
+            <div className='mt-40'>
+              <EditionList editions={relatedEditions} />
+            </div>
+          </section>
         }
       </DefaultLayout>
     )

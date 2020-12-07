@@ -1,14 +1,15 @@
 import Prismic from 'prismic-javascript'
-import Head from 'next/head';
-import { RichText } from 'prismic-reactjs';
+import Head from 'next/head'
+import { RichText } from 'prismic-reactjs'
 
 import { queryRepeatableDocuments } from 'utils/queries'
 
-import DefaultLayout from 'layouts';
-import ProjectSlider from 'components/ProjectSlider';
-import ProjectList from 'components/ProjectList';
+import DefaultLayout from 'layouts'
+import ProjectSlider from 'components/ProjectSlider'
+import ProjectList from 'components/ProjectList'
+import SectionHeader from 'components/SectionHeader'
 
-import { Client } from 'utils/prismicHelpers';
+import { Client } from 'utils/prismicHelpers'
 
 const Project = ({ settings, project, talent, relatedProjects }) => {
 
@@ -32,9 +33,7 @@ const Project = ({ settings, project, talent, relatedProjects }) => {
         <ProjectSlider project={project} talent={talent} />
         {relatedProjects.length > 0 &&
           <section>
-            <div className='container mx-auto border-t pt-8 mb-32'>
-              <h2>Related Projects</h2>
-            </div>
+            <SectionHeader title='Related Projects' />
             <ProjectList projects={relatedProjects} />
           </section>
         }

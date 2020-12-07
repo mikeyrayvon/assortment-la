@@ -9,7 +9,7 @@ const ProjectList = ({ projects }) => {
 
   return (
     <Container>
-      <div className='flex flex-wrap -mx-4'>
+      <div className='flex flex-wrap -mx-6'>
         {projects.map((project) => (
           <ProjectListItem project={project} key={project.id} setHoveredId={setHoveredId} />
         ))}

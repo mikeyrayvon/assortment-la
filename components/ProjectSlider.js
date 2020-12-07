@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useRef } from 'react'
 import SwiperCore, { Mousewheel } from 'swiper'
 import { Swiper, SwiperSlide } from 'swiper/react'
 
@@ -10,47 +10,60 @@ import Gallery from './Gallery'
 
 const ProjectSlider = ({ project, talent }) => {
   const [galleryActive, setGalleryActive] = useState(false)
+  const galleryRef = useRef()
 
   const params = {
-    spaceBetween: 48,
+    spaceBetween: 36,
     slidesPerView: 'auto',
     centeredSlides: false,
+    loop: false,
     mousewheel: {
       forceToAxis: true,
       preventSwipeThresholdDelta: 120,
       preventSwipeThresholdTime: 3000,
-      invert: true
+      invert: false
     },
-    slideToClickedSlide: true,
+    slideToClickedSlide: true
   }
 
   if (project && project.data) {
     return (
-      <section className='project-slider'>
-        <Container>
-          <Swiper {...params}>
-            <SwiperSlide>
-              <h1>
-                <span className='font-query text-5xl'>{project.data.title}</span> <br />
-                {talent && talent.data &&
-                  <span className='text-4xl'>{talent.data.name}</span>
-                }
-              </h1>
-            </SwiperSlide>
-            {project.data.image_gallery.map((item, index) => (
-              <SwiperSlide key={`image_gallery_${project.id}_${index}`}>
-                <ProjectSliderItem item={item} openGallery={() => { setGalleryActive(true) }}/>
+      <div>
+        <div className='project-slider'>
+          <Container>
+            <Swiper {...params}>
+              <SwiperSlide>
+                <h1>
+                  <span className='font-query text-5xl'>{project.data.title}</span> <br />
+                  {talent && talent.data &&
+                    <span className='text-4xl'>{talent.data.name}</span>
+                  }
+                </h1>
               </SwiperSlide>
-            ))}
-          </Swiper>
-        </Container>
+              {project.data.image_gallery.map((item, index) => (
+                <SwiperSlide key={`project_gallery_${project.id}_${index}`}>
+                  <ProjectSliderItem
+                    item={item}
+                    openGallery={() => {
+                      setGalleryActive(true)
+                      if (galleryRef.current && galleryRef.current.swiper) {
+                        galleryRef.current.swiper.slideTo(index, 0)
+                      }
+                    }}
+                  />
+                </SwiperSlide>
+              ))}
+            </Swiper>
+          </Container>
+        </div>
         <Gallery
           docId={project.id}
           gallery={project.data.image_gallery}
           isActive={galleryActive}
           closeGallery={() => { setGalleryActive(false) }}
+          ref={galleryRef}
         />
-      </section>
+      </div>
     )
   }
   return null

@@ -1,15 +1,20 @@
+import { useState, useRef } from 'react'
 import Prismic from 'prismic-javascript'
 import Head from 'next/head'
 import { RichText } from 'prismic-reactjs'
 
 import { queryRepeatableDocuments } from 'utils/queries'
 
-import DefaultLayout from 'layouts';
+import DefaultLayout from 'layouts'
 import Container from 'components/Container'
+import Gallery from 'components/Gallery'
 
 import { Client } from 'utils/prismicHelpers'
 
 const Edition = ({ settings, edition }) => {
+  const [galleryActive, setGalleryActive] = useState(false)
+  const galleryRef = useRef()
+
   if (edition && edition.data) {
 
     let title = 'Assortment'
@@ -28,8 +33,13 @@ const Edition = ({ settings, edition }) => {
             <div className='px-4 w-full md:order-2 md:w-8/12 xxl:w-7/12'>
               {edition.data.gallery &&
                 edition.data.gallery.map((item, index) => (
-                  <div className='mb-20' key={`gallery_item_${index}`}>
-                    <img src={item.image.url} />
+                  <div className={'mb-20' + (index > 0 ? ' hidden md:block' : '')} key={`gallery_item_${index}`}>
+                    <img src={item.image.url} onClick={() => {
+                      setGalleryActive(true)
+                      if (galleryRef.current && galleryRef.current.swiper) {
+                        galleryRef.current.swiper.slideTo(index, 0)
+                      }
+                    }} />
                   </div>
                 ))
               }
@@ -39,6 +49,13 @@ const Edition = ({ settings, edition }) => {
             </div>
           </div>
         </Container>
+        <Gallery
+          docId={edition.id}
+          gallery={edition.data.gallery}
+          isActive={galleryActive}
+          closeGallery={() => { setGalleryActive(false) }}
+          ref={galleryRef}
+        />
       </DefaultLayout>
     );
   }
