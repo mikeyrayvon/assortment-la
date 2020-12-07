@@ -26,6 +26,10 @@ const TalentList = ({ roster }) => {
         <div className='text-center'>
           <span>Filter by </span>
           {servicesList.map((service) => {
+            if (!service.data) {
+              return null
+            }
+
             return (
               <span className='filter-service uppercase' key={service.id}>
                 <span className={'cursor-pointer' + (filterId === service.id ? ' underline' : '')} onClick={() => {
@@ -56,7 +60,7 @@ const TalentList = ({ roster }) => {
           ))}
         </ul>
       </div>
-      {isBrowser && 
+      {isBrowser &&
         <ul className='pointer-events-none'>
           {roster.map(talent => (
             <TalentListImage talent={talent} key={`${talent.id}_image`} hoveredTalent={hoveredTalent} />

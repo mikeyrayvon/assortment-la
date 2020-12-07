@@ -1,5 +1,5 @@
 const TalentServices = ({ services, talentId }) => {
-  if (services.length > 0) {
+  if (services[0].service.data) {
     return (
       <span className='superscript'>
         ({services.map(({service: service}) => {
@@ -11,7 +11,7 @@ const TalentServices = ({ services, talentId }) => {
               </span>
             )
           }
-          return null  
+          return null
         })})
       </span>
     )

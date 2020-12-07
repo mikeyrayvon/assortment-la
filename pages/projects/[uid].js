@@ -21,7 +21,7 @@ const Project = ({ settings, project, talent, relatedProjects }) => {
       title += ` | ${project.data.title}`
     }
 
-    if (talent.data) {
+    if (talent && talent.data) {
       title += ` | ${talent.data.name}`
     }
 
