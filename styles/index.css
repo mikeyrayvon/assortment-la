@@ -45,6 +45,10 @@ main {
   stroke: #424242
 }
 
+.fill-gray-dark path {
+  fill: #979797
+}
+
 .header-logo {
   height: 16px
 }
@@ -88,8 +92,12 @@ main {
   height: 353px;
 }
 
+.swiper-slide {
+  @apply w-auto
+}
+
 .project-slider .swiper-slide {
-  @apply w-auto self-center my-40;
+  @apply self-center my-40;
 }
 
 .project-slide-image {
@@ -102,9 +110,6 @@ main {
   overflow: visible;
 }
 
-.swiper-slide {
-  width: auto;
-}
 
 .gallery .swiper-wrapper {
   align-items: center
