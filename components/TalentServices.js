@@ -3,12 +3,15 @@ const TalentServices = ({ services, talentId }) => {
     return (
       <span className='superscript'>
         ({services.map(({service: service}) => {
-          return (
-            <span className='talent-service' key={`talent_${talentId}_service_${service.id}`}>
-              <span>{service.data.title}</span>
-              <span className='comma'>,&nbsp;</span>
-            </span>
-          )
+          if (service.data) {
+            return (
+              <span className='talent-service' key={`talent_${talentId}_service_${service.id}`}>
+                <span>{service.data.title}</span>
+                <span className='comma'>,&nbsp;</span>
+              </span>
+            )
+          }
+          return null  
         })})
       </span>
     )
