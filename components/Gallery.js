@@ -12,6 +12,7 @@ const Gallery = forwardRef((props, ref) => {
 
   const params = {
     centeredSlides: true,
+    slidesPerView: 'auto',
     loop: false,
     mousewheel: {
       forceToAxis: true,
@@ -38,8 +39,8 @@ const Gallery = forwardRef((props, ref) => {
                   xl: 'w=538',
                   full: 'w=688'
                 }}
-                pictureClass='gallery-picture'
-                imgClass='gallery-image'
+                pictureClass='w-full h-full px-24'
+                imgClass='w-full h-full object-contain'
               />
             </SwiperSlide>
           )
