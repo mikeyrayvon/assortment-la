@@ -1,0 +1,62 @@
+{
+  "Main" : {
+    "uid" : {
+      "type" : "UID",
+      "config" : {
+        "label" : "UID",
+        "placeholder" : "unique-identifier-for-project-url"
+      }
+    },
+    "title" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "Title",
+        "placeholder" : "Project Title",
+        "useAsTitle" : true
+      }
+    },
+    "talent" : {
+      "type" : "Link",
+      "config" : {
+        "select" : "document",
+        "customtypes" : [ "talent" ],
+        "label" : "Talent"
+      }
+    },
+    "main_image" : {
+      "type" : "Image",
+      "config" : {
+        "constraint" : {
+          "width" : null,
+          "height" : null
+        },
+        "thumbnails" : [ ],
+        "label" : "Main Image"
+      }
+    },
+    "image_gallery" : {
+      "type" : "Group",
+      "config" : {
+        "fields" : {
+          "image" : {
+            "type" : "Image",
+            "config" : {
+              "constraint" : {
+                "width" : null
+              },
+              "thumbnails" : [ ],
+              "label" : "Image"
+            }
+          },
+          "caption" : {
+            "type" : "Text",
+            "config" : {
+              "label" : "Caption"
+            }
+          }
+        },
+        "label" : "Image Gallery"
+      }
+    }
+  }
+}

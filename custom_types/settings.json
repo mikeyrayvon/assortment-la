@@ -1,0 +1,65 @@
+{
+  "Main" : {
+    "uid" : {
+      "type" : "UID",
+      "config" : {
+        "label" : "UID",
+        "placeholder" : "settings"
+      }
+    },
+    "title" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "Title",
+        "placeholder" : "Settings",
+        "useAsTitle" : true
+      }
+    },
+    "current_city" : {
+      "type" : "Select",
+      "config" : {
+        "options" : [ "Los Angeles", "Mexico City", "Paris" ],
+        "label" : "Current City"
+      }
+    },
+    "footer_text" : {
+      "type" : "StructuredText",
+      "config" : {
+        "multi" : "paragraph, strong, em, hyperlink",
+        "allowTargetBlank" : true,
+        "label" : "Footer Text"
+      }
+    },
+    "mailchimp_label" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "Mailchimp Label"
+      }
+    },
+    "mailchimp_action" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "Mailchimp Action"
+      }
+    },
+    "instagram_handle" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "Instagram Username"
+      }
+    },
+    "soundcloud_handle" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "Soundcloud Username"
+      }
+    },
+    "footer_contact" : {
+      "type" : "StructuredText",
+      "config" : {
+        "multi" : "paragraph, hyperlink",
+        "label" : "Footer Contact"
+      }
+    }
+  }
+}

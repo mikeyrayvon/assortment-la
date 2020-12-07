@@ -1,0 +1,21 @@
+{
+  "Main" : {
+    "title" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "Title",
+        "placeholder" : "Agency",
+        "useAsTitle" : true
+      }
+    },
+    "body" : {
+      "type" : "StructuredText",
+      "config" : {
+        "multi" : "paragraph, heading2, heading3, heading4, heading5, heading6, em, hyperlink",
+        "allowTargetBlank" : true,
+        "label" : "Body",
+        "labels" : [ "superscript" ]
+      }
+    }
+  }
+}

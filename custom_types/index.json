@@ -1,50 +1,31 @@
- [
-  {
-    "id": "landing",
-    "name": "Landing",
-    "repeatable": false,
-    "value": "landing.json"
-  },
-  {
-    "id": "roster",
-    "name": "Roster",
-    "repeatable": false,
-    "value": "roster.json"
-  },
-  {
-    "id": "talent",
-    "name": "Talent",
-    "repeatable": true,
-    "value": "talent.json"
-  },
-  {
-    "id": "role",
-    "name": "Role",
-    "repeatable": true,
-    "value": "role.json"
-  },
-  {
-    "id": "project",
-    "name": "Project",
-    "repeatable": true,
-    "value": "project.json"
-  },
-  {
-    "id": "editions",
-    "name": "Editions",
-    "repeatable": false,
-    "value": "editions.json"
-  },
-  {
-    "id": "edition",
-    "name": "Edition",
-    "repeatable": true,
-    "value": "edition.json"
-  },
-  {
-    "id": "agency",
-    "name": "Agency",
-    "repeatable": false,
-    "value": "agency.json"
-  }
-]
+[{
+  "id": "agency",
+  "name": "Agency",
+  "repeatable": false,
+  "value": "agency.json"
+}, {
+  "id": "edition",
+  "name": "Edition",
+  "repeatable": true,
+  "value": "edition.json"
+}, {
+  "id": "project",
+  "name": "Project",
+  "repeatable": true,
+  "value": "project.json"
+}, {
+  "id": "service",
+  "name": "Service",
+  "repeatable": true,
+  "value": "service.json"
+}, {
+  "id": "settings",
+  "name": "Settings",
+  "repeatable": false,
+  "value": "settings.json"
+}, {
+  "id": "talent",
+  "name": "Talent",
+  "repeatable": true,
+  "value": "talent.json"
+}]
