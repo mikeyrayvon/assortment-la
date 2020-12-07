@@ -1,4 +1,6 @@
 import { RichText } from 'prismic-reactjs'
+import { GrSoundcloud } from 'react-icons/gr'
+import { FaInstagram } from 'react-icons/fa'
 
 import Container from './Container'
 import MailchimpForm from './MailchimpForm'
@@ -27,12 +29,18 @@ const Footer = ({ settings }) => {
             <div className='w-full md:w-4/12 md:order-2 mb-10'>
               {settings.data.instagram_handle &&
                 <div className='mb-4'>
-                  <a className='hover:underline' href={`https://instagram.com/${settings.data.instagram_handle}`}>Instagram</a>
+                  <a className='hover:underline' href={`https://instagram.com/${settings.data.instagram_handle}`}>
+                    <FaInstagram className='bg-black text-white w-12 h-12 p-2 rounded-full inline-block mr-8' />
+                    <span>Instagram</span>
+                  </a>
                 </div>
               }
               {settings.data.soundcloud_handle &&
                 <div className='mb-4'>
-                  <a className='hover:underline' href={`https://soundcloud.com/${settings.data.soundcloud_handle}`}>Soundcloud</a>
+                  <a className='hover:underline' href={`https://soundcloud.com/${settings.data.soundcloud_handle}`}>
+                    <GrSoundcloud className='bg-black text-white w-12 h-12 p-2 rounded-full inline-block mr-8' />
+                    <span>Soundcloud</span>
+                  </a>
                 </div>
               }
             </div>
