@@ -60,6 +60,8 @@ const ProjectSlider = ({ project, talent }) => {
         <Gallery
           docId={project.id}
           gallery={project.data.image_gallery}
+          title={project.data.title}
+          subtitle={talent.data.name}
           isActive={galleryActive}
           closeGallery={() => { setGalleryActive(false) }}
           ref={galleryRef}

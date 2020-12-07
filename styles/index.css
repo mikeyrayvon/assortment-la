@@ -49,6 +49,10 @@ main {
   fill: #979797
 }
 
+.fill-black path {
+  fill: #424242
+}
+
 .header-logo {
   height: 16px
 }

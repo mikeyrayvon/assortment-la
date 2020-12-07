@@ -1,4 +1,4 @@
-import { forwardRef } from 'react'
+import { forwardRef, useState } from 'react'
 import SwiperCore, { Mousewheel } from 'swiper'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { CgMinimizeAlt, CgArrowRight, CgArrowLeft } from 'react-icons/cg'
@@ -6,9 +6,15 @@ import { CgMinimizeAlt, CgArrowRight, CgArrowLeft } from 'react-icons/cg'
 SwiperCore.use([Mousewheel])
 
 import ResponsiveImage from './ResponsiveImage'
+import Container from './Container'
 
 const Gallery = forwardRef((props, ref) => {
-  const { docId, gallery, isActive, closeGallery } = props
+  const { docId, gallery, title, subtitle, isActive, closeGallery } = props
+
+  const [isBeginning, setIsBeginning] = useState(true)
+  const [isEnd, setIsEnd] = useState(false)
+
+  let captions = []
 
   const params = {
     centeredSlides: true,
@@ -27,6 +33,10 @@ const Gallery = forwardRef((props, ref) => {
       <Swiper
         {...params}
         ref={ref}
+        onSlideChange={(swiper) => {
+          setIsEnd(swiper.isEnd)
+          setIsBeginning(swiper.isBeginning)
+        }}
       >
         {gallery.map((item, index) => {
           return (
@@ -46,9 +56,37 @@ const Gallery = forwardRef((props, ref) => {
           )
         })}
       </Swiper>
-      <div className='absolute top-0 right-0 p-12 cursor-pointer z-10 text-4xl fill-gray-dark' onClick={() => {
+
+      <div onClick={() => {
+        if (ref.current && ref.current.swiper) {
+          ref.current.swiper.slidePrev()
+        }
+      }} className={'hidden absolute top-0 left-0 bottom-0 z-30 w-1/3 text-6xl fill-black p-12 justify-start items-center bg-transparent cursor-pointer opacity-0' + (isBeginning ? '' : ' sm:flex hover:opacity-100')}><CgArrowLeft /></div>
+
+      <div onClick={() => {
+        if (ref.current && ref.current.swiper) {
+          ref.current.swiper.slideNext()
+        }
+      }} className={'hidden absolute top-0 right-0 bottom-0 z-30 w-1/3 text-6xl fill-black p-12 justify-end items-center bg-transparent cursor-pointer opacity-0' + (isEnd ? '' : ' sm:flex hover:opacity-100')}><CgArrowRight /></div>
+
+      <div className='absolute top-0 right-0 p-4 m-4 cursor-pointer z-50 text-4xl fill-gray-dark' onClick={() => {
         closeGallery()
       }}><CgMinimizeAlt /></div>
+
+      <div className='absolute bottom-0 left-0 right-0 flex flex-wrap justify-between items-center'>
+        <div className='w-full sm:w-auto px-12 mb-12 flex items-center justify-start'>
+          {title &&
+            <span className='font-query'>{title}</span>
+          }
+          {title && subtitle &&
+            <img className='w-6 h-6 mx-2' src='/images/dot.svg' />
+          }
+          {subtitle &&
+            <span>{subtitle}</span>
+          }
+        </div>
+        <div className='w-full sm:w-auto px-12 mb-12'>&copy; {new Date().getFullYear()} Assorment. All rights reserved.</div>
+      </div>
     </div>
   )
 })

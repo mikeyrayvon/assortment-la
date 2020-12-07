@@ -1,14 +1,6 @@
 module.exports = {
   purge: [],
   theme: {
-    colors: {
-      gray: {
-        DEFAULT: '#F5F5F5',
-        dark: '#979797'
-      },
-      black: '#424242',
-      white: '#FFFFFF',
-    },
     fontFamily: {
       'america': ['America', 'monospace'],
       'query': ['Query', 'sans-serif'],
@@ -23,10 +15,24 @@ module.exports = {
       fontSize: {
         '7xl': '5rem',
         '8xl': '6rem'
-      }
+      },
+      colors: {
+        gray: {
+          DEFAULT: '#F5F5F5',
+          dark: '#979797'
+        },
+        black: '#424242',
+        white: '#FFFFFF',
+      },
+      cursor: {
+        'arrow-right': 'e-resize',
+        'arrow-left': 'w-resize'
+      },
     },
   },
-  variants: {},
+  variants: {
+    visibility: ['responsive', 'hover'],
+  },
   corePlugins: {
     container: false
   },

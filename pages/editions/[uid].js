@@ -52,6 +52,7 @@ const Edition = ({ settings, edition }) => {
         <Gallery
           docId={edition.id}
           gallery={edition.data.gallery}
+          title={edition.data.title}
           isActive={galleryActive}
           closeGallery={() => { setGalleryActive(false) }}
           ref={galleryRef}
