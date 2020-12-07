@@ -8,6 +8,7 @@ import { queryRepeatableDocuments } from 'utils/queries'
 import DefaultLayout from 'layouts'
 import Container from 'components/Container'
 import Gallery from 'components/Gallery'
+import ResponsiveImage from 'components/ResponsiveImage'
 
 import { Client } from 'utils/prismicHelpers'
 
@@ -33,14 +34,24 @@ const Edition = ({ settings, edition }) => {
             <div className='px-4 w-full md:order-2 md:w-8/12 xxl:w-7/12'>
               {edition.data.gallery &&
                 edition.data.gallery.map((item, index) => (
-                  <div className={'mb-20' + (index > 0 ? ' hidden md:block' : '')} key={`gallery_item_${index}`}>
-                    <img src={item.image.url} onClick={() => {
+                  <ResponsiveImage
+                    image={item.image}
+                    sizes={{
+                      mobile: 'w=353',
+                      md: 'w=474',
+                      xl: 'w=538',
+                      full: 'w=688'
+                    }}
+                    pictureClass={'mb-20 ' + (index > 0 ? 'hidden md:block' : 'block')}
+                    imgClass='cursor-pointer'
+                    handleClick={() => {
                       setGalleryActive(true)
                       if (galleryRef.current && galleryRef.current.swiper) {
                         galleryRef.current.swiper.slideTo(index, 0)
                       }
-                    }} />
-                  </div>
+                    }}
+                    key={`gallery_item_${index}`}
+                  />
                 ))
               }
             </div>

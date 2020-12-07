@@ -29,7 +29,7 @@ const Gallery = forwardRef((props, ref) => {
   }
 
   return (
-    <div className={'gallery fixed bg-white inset-0 z-50 flex items-center transition-opacity' + (isActive ? '' : ' opacity-0 pointer-events-none')}>
+    <div className={'gallery fixed bg-white inset-0 z-40 flex items-center transition-opacity' + (isActive ? '' : ' opacity-0 pointer-events-none')}>
       <Swiper
         {...params}
         ref={ref}
