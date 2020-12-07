@@ -18,7 +18,14 @@
     "current_city" : {
       "type" : "Select",
       "config" : {
-        "options" : [ "Los Angeles", "Mexico City", "Paris" ],
+        "options" : [
+          "Los Angeles",
+          "Mexico City",
+          "Paris",
+          "Berlin",
+          "London",
+          "New York"
+        ],
         "label" : "Current City"
       }
     },

@@ -4,14 +4,26 @@ const Weather = ({ city }) => {
 
   const [forecast, setForecast] = useState({});
 
-  let city_id = '5368361' // Los Angeles, CA
+  let city_id
 
-  if (city === 'Mexico City') {
-    city_id = '3530597'
-  }
-
-  if (city === 'Paris') {
-    city_id = '2988507'
+  switch (city) {
+    case 'Mexico City':
+      city_id = '3530597'
+      break;
+    case 'Paris':
+      city_id = '2988507'
+      break;
+    case 'Berlin':
+      city_id = '2950159'
+      break;
+    case 'London':
+      city_id = '2643743'
+      break;
+    case 'New York':
+      city_id = '5128581'
+      break;
+    default:
+      city_id = '5368361'
   }
 
   useEffect(() => {
