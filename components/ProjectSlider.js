@@ -23,7 +23,8 @@ const ProjectSlider = ({ project, talent }) => {
       preventSwipeThresholdTime: 3000,
       invert: false
     },
-    slideToClickedSlide: true
+    slideToClickedSlide: true,
+    freeMode: true
   }
 
   if (project && project.data) {

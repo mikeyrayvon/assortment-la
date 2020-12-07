@@ -1,3 +1,5 @@
+import ResponsiveImage from './ResponsiveImage'
+
 const GalleryItem = ({ item }) => {
   return (
     <figure>

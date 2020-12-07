@@ -92,12 +92,8 @@ main {
   height: 353px;
 }
 
-.swiper-slide {
-  @apply w-auto
-}
-
 .project-slider .swiper-slide {
-  @apply self-center my-40;
+  @apply w-auto self-center my-40;
 }
 
 .project-slide-image {
@@ -110,23 +106,35 @@ main {
   overflow: visible;
 }
 
+.gallery .swiper-container {
+  width: 100vw;
+}
 
 .gallery .swiper-wrapper {
   align-items: center
 }
 
 .gallery .swiper-slide {
+  @apply flex justify-center items-center;
   opacity: .2;
   transition: opacity 300ms ease-in-out;
+  width: 500px;
 }
 
 .gallery .swiper-slide-active {
   opacity: 1
 }
 
-.gallery .swiper-slide img {
-  max-height: 700px;
+.gallery-picture {
+  width: 90vw;
+  height: 90vh;
+}
+
+.gallery-image {
+  max-height: 100%;
+  max-width: 100%;
   width: auto;
+  height: auto;
 }
 
 input {
