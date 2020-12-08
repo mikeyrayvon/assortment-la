@@ -2,6 +2,7 @@ import { forwardRef, useState } from 'react'
 import SwiperCore, { Mousewheel } from 'swiper'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { CgCompressRight, CgArrowRight, CgArrowLeft } from 'react-icons/cg'
+import ReactPlayer from 'react-player'
 
 SwiperCore.use([Mousewheel])
 
@@ -13,6 +14,7 @@ const Gallery = forwardRef((props, ref) => {
 
   const [isBeginning, setIsBeginning] = useState(true)
   const [isEnd, setIsEnd] = useState(false)
+  const [activeIndex, setActiveIndex] = useState(0)
 
   let captions = []
 
@@ -36,22 +38,28 @@ const Gallery = forwardRef((props, ref) => {
         onSlideChange={(swiper) => {
           setIsEnd(swiper.isEnd)
           setIsBeginning(swiper.isBeginning)
+          setActiveIndex(swiper.activeIndex)
         }}
       >
         {gallery.map((item, index) => {
           return (
             <SwiperSlide key={`gallery_${docId}_slide_${index}`}>
-              <ResponsiveImage
-                image={item.image}
-                sizes={{
-                  mobile: 'w=353',
-                  md: 'w=474',
-                  xl: 'w=538',
-                  full: 'w=688'
-                }}
-                pictureClass='w-full h-full px-24'
-                imgClass='w-full h-full object-contain'
-              />
+              {item.video ? (
+                <ReactPlayer url={item.video} playing={activeIndex === index && isActive} />
+              ) : (
+                <ResponsiveImage
+                  image={item.image}
+                  sizes={{
+                    mobile: 'w=353',
+                    md: 'w=474',
+                    xl: 'w=538',
+                    full: 'w=688'
+                  }}
+                  pictureClass='w-full h-full px-24'
+                  imgClass='w-full h-full object-contain'
+                />
+              )}
+
             </SwiperSlide>
           )
         })}
