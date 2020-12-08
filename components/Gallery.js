@@ -45,7 +45,12 @@ const Gallery = forwardRef((props, ref) => {
           return (
             <SwiperSlide key={`gallery_${docId}_slide_${index}`}>
               {item.video ? (
-                <ReactPlayer url={item.video} playing={activeIndex === index && isActive} />
+                <ReactPlayer
+                  url={item.video}
+                  playing={activeIndex === index && isActive}
+                  width='60vw'
+                  height={((60 / 16) * 9) + 'vw'}
+                />
               ) : (
                 <ResponsiveImage
                   image={item.image}
