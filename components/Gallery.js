@@ -1,7 +1,7 @@
 import { forwardRef, useState } from 'react'
 import SwiperCore, { Mousewheel } from 'swiper'
 import { Swiper, SwiperSlide } from 'swiper/react'
-import { CgMinimizeAlt, CgArrowRight, CgArrowLeft } from 'react-icons/cg'
+import { CgCompressRight, CgArrowRight, CgArrowLeft } from 'react-icons/cg'
 
 SwiperCore.use([Mousewheel])
 
@@ -71,7 +71,7 @@ const Gallery = forwardRef((props, ref) => {
 
       <div className='absolute top-0 right-0 p-4 m-4 cursor-pointer z-50 text-4xl fill-gray-dark' onClick={() => {
         closeGallery()
-      }}><CgMinimizeAlt /></div>
+      }}><CgCompressRight /></div>
 
       <div className='absolute bottom-0 left-0 right-0 flex flex-wrap justify-between items-center'>
         <div className='w-full sm:w-auto px-12 mb-12 flex items-center justify-start'>
