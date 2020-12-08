@@ -1,5 +1,6 @@
 import React from 'react'
 import { default as NextLink } from 'next/link'
+import ReactPlayer from 'react-player'
 
 import ResponsiveImage from './ResponsiveImage'
 
