@@ -53,6 +53,12 @@
             "config" : {
               "label" : "Caption"
             }
+          },
+          "video" : {
+            "type" : "Text",
+            "config" : {
+              "label" : "Video URL"
+            }
           }
         },
         "label" : "Image Gallery"
