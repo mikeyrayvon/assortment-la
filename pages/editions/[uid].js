@@ -75,7 +75,7 @@ const Edition = ({ settings, edition }) => {
   return null;
 };
 
-export async function getStaticProps({ params, preview = false, previewData = null }) {
+export async function getStaticProps({ params, preview = null, previewData = {} }) {
   const { ref } = previewData
 
   const settings = await Client().getSingle('settings') || {}

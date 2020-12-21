@@ -22,7 +22,7 @@ const Editions = ({ settings, editions }) => {
   );
 };
 
-export async function getStaticProps({ preview = false, previewData = null }) {
+export async function getStaticProps({ preview = null, previewData = {} }) {
 
   const { ref } = previewData
 
