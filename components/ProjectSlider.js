@@ -24,7 +24,9 @@ const ProjectSlider = ({ project, talent }) => {
       invert: false
     },
     slideToClickedSlide: true,
-    freeMode: true
+    freeMode: true,
+    preloadImages: true,
+    updateOnImagesReady: true
   }
 
   if (project && project.data) {
