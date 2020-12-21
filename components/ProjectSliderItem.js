@@ -9,10 +9,10 @@ const ProjectSliderItem = ({ item, openGallery }) => {
         <ResponsiveImage
           image={image}
           sizes={{
-            mobile: 'w=353',
-            md: 'w=474',
-            xl: 'w=538',
-            full: 'w=688'
+            mobile: 'w=700',
+            md: 'w=900',
+            xl: 'w=1100',
+            full: 'w=1300'
           }}
           imgClass='project-slide-image'
           handleClick={() => { openGallery() }}

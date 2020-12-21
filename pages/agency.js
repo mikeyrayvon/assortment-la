@@ -26,7 +26,7 @@ const Agency = ({ settings, agency }) => {
   )
 }
 
-export async function getStaticProps({ preview = null, previewData = {} }) {
+export async function getStaticProps({ preview = false, previewData = null }) {
 
   const { ref } = previewData
 

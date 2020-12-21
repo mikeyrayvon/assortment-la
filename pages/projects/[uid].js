@@ -44,7 +44,7 @@ const Project = ({ settings, project, talent, relatedProjects }) => {
   return null;
 };
 
-export async function getStaticProps({ params, preview = null, previewData = {} }) {
+export async function getStaticProps({ params, preview = false, previewData = null }) {
   const { ref } = previewData
 
   const settings = await Client().getSingle('settings') || {}
