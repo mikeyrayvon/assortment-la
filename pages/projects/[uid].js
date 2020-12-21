@@ -72,7 +72,7 @@ export async function getStaticProps({ params, preview = null, previewData = {} 
       settings,
       preview,
       project,
-      talent,
+      talent: talent ? talent : null, 
       relatedProjects: relatedProjects ? relatedProjects.results : [],
     }
   }
