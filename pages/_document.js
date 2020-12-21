@@ -12,7 +12,6 @@ class MyDocument extends Document {
       <Html>
         <Head>
           <meta charSet="utf-8" />
-          <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900" rel="stylesheet" />
           <link rel="icon" href="/favicon.png" type="image/png" />
         </Head>
         <body className='text-black bg-gray'>
