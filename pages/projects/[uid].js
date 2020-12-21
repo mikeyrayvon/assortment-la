@@ -51,10 +51,9 @@ export async function getStaticProps({ params, preview = null, previewData = {} 
 
   const project = await Client().getByUID('project', params.uid, ref ? { ref } : null) || {}
 
-  let talent, relatedProjects
+  let talent, relatedProjects = {}
 
-  if (project.data.talent) {
-
+  if (project.data.talent.uid) {
     talent = await Client().getByUID('talent', project.data.talent.uid, ref ? { ref } : null) || {}
 
     relatedProjects = await Client().query([
@@ -66,7 +65,6 @@ export async function getStaticProps({ params, preview = null, previewData = {} 
     }).catch(error => {
       console.log(error)
     }) || {}
-
   }
 
   return {
