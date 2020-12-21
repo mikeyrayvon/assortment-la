@@ -55,10 +55,10 @@ const Gallery = forwardRef((props, ref) => {
                 <ResponsiveImage
                   image={item.image}
                   sizes={{
-                    mobile: 'w=353',
-                    md: 'w=474',
-                    xl: 'w=538',
-                    full: 'w=688'
+                    mobile: 'w=600',
+                    md: 'w=900',
+                    xl: 'w=1200',
+                    full: 'w=1500'
                   }}
                   pictureClass='w-full h-full px-24'
                   imgClass='w-full h-full object-contain'
