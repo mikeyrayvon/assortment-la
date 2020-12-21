@@ -5,10 +5,10 @@ const MailchimpForm = ({ mailchimpAction }) => {
 
   let email
 
-  const submit = () => {
+  const submit = (subscribe) => {
     return email &&
     email.value.indexOf("@") > -1 &&
-    onValidated({
+    subscribe({
       EMAIL: email.value
     })
   }
@@ -25,7 +25,7 @@ const MailchimpForm = ({ mailchimpAction }) => {
                 type='email'
                 className='font-normal border-b border-black flex-grow bg-transparent'
               />
-              <button className='button py-1' onClick={submit}>
+              <button className='button py-1' onClick={() => submit(subscribe)}>
                 <span className="font-normal text-xl bg-transparent font-query">Subscribe</span>
               </button>
             </div>
