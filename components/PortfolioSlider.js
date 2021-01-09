@@ -8,7 +8,7 @@ import ProjectSliderItem from './ProjectSliderItem'
 import Container from './Container'
 import Gallery from './Gallery'
 
-const ProjectSlider = ({ project, talent }) => {
+const PortfolioSlider = ({ talent }) => {
   const [galleryActive, setGalleryActive] = useState(false)
   const galleryRef = useRef()
 
@@ -29,7 +29,7 @@ const ProjectSlider = ({ project, talent }) => {
     updateOnImagesReady: true
   }
 
-  if (project && project.data) {
+  if (talent && talent.data) {
     return (
       <div>
         <div className='project-slider'>
@@ -37,14 +37,11 @@ const ProjectSlider = ({ project, talent }) => {
             <Swiper {...params}>
               <SwiperSlide>
                 <h2>
-                  <span className='font-query text-5xl'>{project.data.title}</span> <br />
-                  {talent && talent.data &&
-                    <span className='text-4xl'>{talent.data.name}</span>
-                  }
+                  <span className='font-query text-5xl'>Portfolio</span>
                 </h2>
               </SwiperSlide>
-              {project.data.image_gallery.map((item, index) => (
-                <SwiperSlide key={`project_gallery_${project.id}_${index}`}>
+              {talent.data.portfolio.map((item, index) => (
+                <SwiperSlide key={`portfolio_gallery_${talent.id}_${index}`}>
                   <ProjectSliderItem
                     item={item}
                     openGallery={() => {
@@ -60,10 +57,10 @@ const ProjectSlider = ({ project, talent }) => {
           </Container>
         </div>
         <Gallery
-          docId={project.id}
-          gallery={project.data.image_gallery}
-          title={project.data.title}
-          subtitle={talent && talent.data ? talent.data.name : null}
+          docId={talent.id}
+          gallery={talent.data.portfolio}
+          title={talent.data.name}
+          subtitle={null}
           isActive={galleryActive}
           closeGallery={() => { setGalleryActive(false) }}
           ref={galleryRef}
@@ -74,4 +71,4 @@ const ProjectSlider = ({ project, talent }) => {
   return null
 }
 
-export default ProjectSlider
+export default PortfolioSlider

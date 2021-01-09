@@ -8,6 +8,7 @@ import ProjectSlider from 'components/ProjectSlider'
 import TalentHeader from 'components/TalentHeader'
 import EditionList from 'components/EditionList'
 import SectionHeader from 'components/SectionHeader'
+import PortfolioSlider from 'components/PortfolioSlider'
 
 import { hrefResolver, linkResolver } from 'prismic-configuration'
 import { Client } from 'utils/prismicHelpers'
@@ -28,6 +29,12 @@ const Talent = ({ settings, talent, relatedProjects, relatedEditions }) => {
           <title>{title}</title>
         </Head>
         <TalentHeader talent={talent} />
+        {talent.data.portfolio.length > 0 &&
+          <section>
+            <SectionHeader />
+            <PortfolioSlider talent={talent} />
+          </section>
+        }
         {relatedProjects.length > 0 &&
           relatedProjects.map((project, index) => (
             <section key={`${talent.id}_${project.id}`}>
