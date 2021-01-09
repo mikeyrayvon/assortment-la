@@ -76,6 +76,36 @@
         "label" : "Services"
       }
     },
+    "portfolio" : {
+      "type" : "Group",
+      "config" : {
+        "fields" : {
+          "image" : {
+            "type" : "Image",
+            "config" : {
+              "constraint" : {
+                "width" : null
+              },
+              "thumbnails" : [ ],
+              "label" : "Image"
+            }
+          },
+          "caption" : {
+            "type" : "Text",
+            "config" : {
+              "label" : "Caption"
+            }
+          },
+          "video" : {
+            "type" : "Text",
+            "config" : {
+              "label" : "Video URL"
+            }
+          }
+        },
+        "label" : "Portfolio"
+      }
+    },
     "projects" : {
       "type" : "Group",
       "config" : {
