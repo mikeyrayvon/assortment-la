@@ -46,21 +46,21 @@ const HeaderNav = ({ shouldAnimate }) => {
           </h1>
           <nav className='main-nav hidden md:block'>
             <ul className='flex text-5xl font-query'>
-              <li className='px-2'>
+              <li className='nav-item px-2'>
                 <NextLink href={'/roster'}>
-                  <a className='hover:underline'>Roster</a>
+                  <a className='relative'>Roster</a>
                 </NextLink>
                 <span className='pointer-events-none'>,</span>
               </li>
-              <li className='px-2'>
+              <li className='nav-item px-2'>
                 <NextLink href={'/editions'}>
-                  <a className='hover:underline'>Editions</a>
+                  <a className='relative'>Editions</a>
                 </NextLink>
                 <span className='pointer-events-none'>,</span>
               </li>
-              <li className='px-2'>
+              <li className='nav-item px-2'>
                 <NextLink href={'/agency'}>
-                  <a className='hover:underline'>Agency</a>
+                  <a className='relative'>Agency</a>
                 </NextLink>
               </li>
             </ul>
