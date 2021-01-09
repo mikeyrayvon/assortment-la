@@ -35,7 +35,7 @@ const TalentHeader = ({ talent }) => {
                   <div className='pl-12 w-1/2 mb-12'>
                     <a className='hover:underline flex' href={talent.data.pdf.url}>
                       <GrDocument className='flex-shrink-0 stroke-black w-12 h-12 p-2 inline-block mr-8' />
-                      <span>Download {talent.data.name}'s PDF</span>
+                      <span>Download {talent.data.name}'s Portfolio</span>
                     </a>
                   </div>
                 }
