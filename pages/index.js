@@ -5,6 +5,9 @@ import { Client } from 'utils/prismicHelpers'
 
 import DefaultLayout from 'layouts'
 import ProjectList from 'components/ProjectList'
+import LandingSlider from 'components/LandingSlider'
+
+// <ProjectList projects={projects} />
 
 const Landing = ({ settings, projects }) => {
   return (
@@ -12,7 +15,7 @@ const Landing = ({ settings, projects }) => {
       <Head>
         <title>Assortment</title>
       </Head>
-      <ProjectList projects={projects} />
+      <LandingSlider projects={projects} />
     </DefaultLayout>
   )
 }

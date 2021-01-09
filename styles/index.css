@@ -185,9 +185,14 @@ input {
     height: 492px;
   }
 
+  .project-slider .swiper-slide {
+    width: 492px;
+  }
+
   .project-slide-image {
     max-width: 492px;
     max-height: 492px;
+    margin: 0 auto;
   }
 
   .edition-list-image-holder {
@@ -202,6 +207,10 @@ input {
 
   .project-list-image {
     height: 562px;
+  }
+
+  .project-slider .swiper-slide {
+    width: 562px;
   }
 
   .project-slide-image {
@@ -221,6 +230,10 @@ input {
 
   .project-list-image {
     height: 688px;
+  }
+
+  .project-slider .swiper-slide {
+    width: 688px;
   }
 
   .project-slide-image {
