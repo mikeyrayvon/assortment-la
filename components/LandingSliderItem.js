@@ -1,10 +1,10 @@
 import ResponsiveImage from './ResponsiveImage'
 
-const LandingSliderItem = ({ project }) => {
-  if (project && project.data) {
-    const { main_image } = project.data
+const LandingSliderItem = ({ doc, setHoveredId }) => {
+  if (doc && doc.data) {
+    const { main_image } = doc.data
     return (
-      <div className='relative'>
+      <div className='relative' onMouseEnter={() => { setHoveredId(doc.id) }} onMouseLeave={() => { setHoveredId('') }}>
         <ResponsiveImage
           image={main_image}
           sizes={{

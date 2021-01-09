@@ -1,12 +1,16 @@
+import { useState } from 'react'
 import SwiperCore, { Mousewheel } from 'swiper'
 import { Swiper, SwiperSlide } from 'swiper/react'
 
 SwiperCore.use([Mousewheel])
 
 import LandingSliderItem from './LandingSliderItem'
+import LandingSliderTitles from './LandingSliderTitles'
 import Container from './Container'
 
-const LandingSlider = ({ projects }) => {
+const LandingSlider = ({ docs }) => {
+  const [hoveredId, setHoveredId] = useState('')
+
   const params = {
     spaceBetween: 36,
     slidesPerView: 'auto',
@@ -24,20 +28,22 @@ const LandingSlider = ({ projects }) => {
     updateOnImagesReady: true
   }
 
-  if (projects.length > 0) {
+  if (docs.length > 0) {
+    console.log(docs)
     return (
-      <div>
+      <div className='relative'>
         <div className='project-slider'>
           <Container>
             <Swiper {...params}>
-              {projects.map((project, index) => (
-                <SwiperSlide key={`landing_slider_${project.id}`}>
-                  <LandingSliderItem project={project} />
+              {docs.map((doc, index) => (
+                <SwiperSlide key={`landing_slider_${doc.id}`}>
+                  <LandingSliderItem doc={doc} setHoveredId={setHoveredId} />
                 </SwiperSlide>
               ))}
             </Swiper>
           </Container>
         </div>
+        <LandingSliderTitles docs={docs} hoveredId={hoveredId} />
       </div>
     )
   }

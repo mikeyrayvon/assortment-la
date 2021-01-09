@@ -6,13 +6,13 @@ import { Client } from 'utils/prismicHelpers'
 import DefaultLayout from 'layouts'
 import LandingSlider from 'components/LandingSlider'
 
-const Landing = ({ settings, projects }) => {
+const Landing = ({ settings, docs }) => {
   return (
     <DefaultLayout settings={settings}>
       <Head>
         <title>Assortment</title>
       </Head>
-      <LandingSlider projects={projects} />
+      <LandingSlider docs={docs} />
     </DefaultLayout>
   )
 }
@@ -38,7 +38,7 @@ export async function getStaticProps({ preview = null, previewData = {} }) {
   return {
     props: {
       settings,
-      projects: projects ? projects.results : [],
+      docs: projects ? projects.results : [],
       preview
     }
   }
