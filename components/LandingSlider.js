@@ -29,7 +29,6 @@ const LandingSlider = ({ docs }) => {
   }
 
   if (docs.length > 0) {
-    console.log(docs)
     return (
       <div className='relative'>
         <div className='project-slider'>
