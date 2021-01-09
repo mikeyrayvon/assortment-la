@@ -42,7 +42,6 @@ const Weather = ({ city }) => {
     .then(res => res.json())
     .then(res => {
       setForecast(res);
-      console.log(res);
     })
     .catch(err => {
       console.log(err.message);
@@ -51,7 +50,6 @@ const Weather = ({ city }) => {
   }, []);
 
   const weatherIcon = (code) => {
-    console.log(code)
     if (code === '01d') {
       return <WiDaySunny />
     } else if (code === '01n') {
