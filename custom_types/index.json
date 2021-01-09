@@ -28,4 +28,9 @@
   "name": "Talent",
   "repeatable": true,
   "value": "talent.json"
+}, {
+  "id": "landing",
+  "name": "Landing",
+  "repeatable": false,
+  "value": "landing.json"
 }]

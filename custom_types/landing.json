@@ -1,0 +1,38 @@
+{
+  "Main" : {
+    "uid" : {
+      "type" : "UID",
+      "config" : {
+        "label" : "UID",
+        "placeholder" : "landing"
+      }
+    },
+    "title" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "Title",
+        "placeholder" : "Landing",
+        "useAsTitle" : true
+      }
+    },
+    "featured": {
+      "type": "Group",
+      "config": {
+        "fields": {
+          "doc": {
+            "type": "Link",
+            "config": {
+              "select": "document",
+              "customtypes": [
+                "project",
+                "talent"
+              ],
+              "label": "Document"
+            }
+          }
+        },
+        "label": "Featured"
+      }
+    }
+  }
+}
