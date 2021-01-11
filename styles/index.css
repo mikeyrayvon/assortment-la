@@ -131,7 +131,7 @@ main {
   opacity: .2;
   width: 60vw;
   height: 70vw;
-  max-height: 90vh;
+  max-height: 900px;
 }
 
 .gallery .swiper-slide-active {
