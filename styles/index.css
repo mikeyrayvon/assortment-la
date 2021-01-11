@@ -115,7 +115,7 @@ main {
 }
 
 .swiper-container {
-  overflow: visible;
+  overflow: visible !important;
 }
 
 .gallery .swiper-container {
