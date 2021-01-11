@@ -9,10 +9,10 @@ const TalentListImage = ({ talent, hoveredTalent }) => {
         <ResponsiveImage
           image={talent.data.main_image}
           sizes={{
-            mobile: 'w=353',
-            md: 'w=474',
-            xl: 'w=538',
-            full: 'w=688'
+            mobile: 'w=700',
+            md: 'w=900',
+            xl: 'w=1100',
+            full: 'w=1300'
           }}
           pictureClass='absolute inset-0 flex justify-center items-center'
           imgClass={'w-1/2 h-3/4 object-contain' + (hoveredTalent !== talent.id ? ' invisible' : '')}

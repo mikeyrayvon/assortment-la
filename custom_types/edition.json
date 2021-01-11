@@ -27,17 +27,63 @@
       "type" : "Image",
       "config" : {
         "constraint" : {
-          "width" : null
+          "width" : null,
+          "height" : null
         },
-        "thumbnails" : [ ],
+        "thumbnails": [
+          {
+            "name": "mobile",
+            "width": 700,
+            "height": null
+          },
+          {
+            "name": "md",
+            "width": 900,
+            "height": null
+          },
+          {
+            "name": "xl",
+            "width": 1100,
+            "height": null
+          },
+          {
+            "name": "full",
+            "width": 1300,
+            "height": null
+          }
+        ],
         "label" : "Main Image"
       }
     },
     "featured_image" : {
       "type" : "Image",
       "config" : {
-        "constraint" : { },
-        "thumbnails" : [ ],
+        "constraint" : {
+          "width" : null,
+          "height" : null
+        },
+        "thumbnails": [
+          {
+            "name": "mobile",
+            "width": 700,
+            "height": null
+          },
+          {
+            "name": "md",
+            "width": 900,
+            "height": null
+          },
+          {
+            "name": "xl",
+            "width": 1100,
+            "height": null
+          },
+          {
+            "name": "full",
+            "width": 1300,
+            "height": null
+          }
+        ],
         "label" : "Featured Image"
       }
     },
@@ -64,7 +110,33 @@
             "type" : "Image",
             "config" : {
               "constraint" : { },
-              "thumbnails" : [ ],
+              "thumbnails": [
+                {
+                  "name": "mobile",
+                  "width": 700,
+                  "height": null
+                },
+                {
+                  "name": "sm",
+                  "width": 900,
+                  "height": null
+                },
+                {
+                  "name": "md",
+                  "width": 1200,
+                  "height": null
+                },
+                {
+                  "name": "xl",
+                  "width": 1500,
+                  "height": null
+                },
+                {
+                  "name": "full",
+                  "width": 1800,
+                  "height": null
+                }
+              ],
               "label" : "Image"
             }
           },
