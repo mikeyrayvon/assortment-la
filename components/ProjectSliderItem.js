@@ -9,9 +9,10 @@ const ProjectSliderItem = ({ item, openGallery }) => {
         image={image}
         sizes={{
           mobile: 'w=700',
-          md: 'w=900',
-          xl: 'w=1100',
-          full: 'w=1300'
+          sm: 'w=900',
+          md: 'w=1200',
+          xl: 'w=1500',
+          full: 'w=1800'
         }}
         pictureClass='responsive'
         imgClass='project-slide-image'
