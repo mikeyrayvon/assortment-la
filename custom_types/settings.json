@@ -67,6 +67,12 @@
         "multi" : "paragraph, hyperlink",
         "label" : "Footer Contact"
       }
+    },
+    "inquire_email" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "Edition Inquiry Email"
+      }
     }
   }
 }

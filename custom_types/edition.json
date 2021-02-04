@@ -23,6 +23,15 @@
         "label" : "Talent"
       }
     },
+    "show_inquire": {
+      "type": "Boolean",
+      "config": {
+        "placeholder_false": "No",
+        "placeholder_true": "Yes",
+        "default_value": false,
+        "label": "Show Inquire Button"
+      }
+    },
     "main_image" : {
       "type" : "Image",
       "config" : {
