@@ -1,6 +1,7 @@
 import { useState, useRef } from 'react'
 import SwiperCore, { Mousewheel } from 'swiper'
 import { Swiper, SwiperSlide } from 'swiper/react'
+import { default as NextLink } from 'next/link'
 
 SwiperCore.use([Mousewheel])
 
@@ -8,7 +9,7 @@ import ProjectSliderItem from './ProjectSliderItem'
 import Container from './Container'
 import Gallery from './Gallery'
 
-const ProjectSlider = ({ project, talent }) => {
+const ProjectSlider = ({ project, talent, showTalentName }) => {
   const [galleryActive, setGalleryActive] = useState(false)
   const galleryRef = useRef()
 
@@ -38,8 +39,11 @@ const ProjectSlider = ({ project, talent }) => {
               <SwiperSlide>
                 <h2>
                   <span className='font-query text-5xl'>{project.data.title}</span> <br />
-                  {talent && talent.data &&
-                    <span className='text-4xl'>{talent.data.name}</span>
+                  {talent && talent.data && showTalentName &&
+                    <NextLink
+                      as={linkResolver(talent)}
+                      href={hrefResolver(talent)}
+                    ><a className='text-4xl'>{talent.data.name}</a></NextLink>
                   }
                 </h2>
               </SwiperSlide>

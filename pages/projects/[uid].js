@@ -28,7 +28,7 @@ const Project = ({ settings, project, talent }) => {
         <Head>
           <title>{title}</title>
         </Head>
-        <ProjectSlider project={project} talent={talent} />
+        <ProjectSlider project={project} talent={talent} showTalentName />
       </DefaultLayout>
     );
   }
