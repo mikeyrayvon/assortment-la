@@ -2,7 +2,6 @@ const ResponsiveImage = ({image, sizes, pictureClass, imgClass, handleClick, ren
   if (image && image.url) {
     const imageUrl = new URL(image.url)
     const imagePath = imageUrl.origin + imageUrl.pathname + '?auto=compress,format&'
-    //console.log(imagePath + sizes.mobile)
 
     return (
       <picture className={pictureClass} onClick={() => { if (handleClick) { handleClick() } }}>

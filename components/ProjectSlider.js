@@ -16,7 +16,7 @@ const ProjectSlider = ({ project, talent, showTalentName }) => {
   const galleryRef = useRef()
 
   const params = {
-    spaceBetween: 36,
+    spaceBetween: 120,
     slidesPerView: 'auto',
     centeredSlides: false,
     loop: false,

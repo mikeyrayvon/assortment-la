@@ -52,7 +52,7 @@ const HeaderNav = ({ shouldAnimate }) => {
         <div className='text-center flex flex-col items-center z-30'>
           <h1 className='pt-1 mb-4'>
             <NextLink href={'/'}>
-              <img className='header-logo' src='/images/assortment-logo.svg' alt='Assortment' />
+              <img className='header-logo cursor-pointer' src='/images/assortment-logo.svg' alt='Assortment' />
             </NextLink>
           </h1>
           <nav className='main-nav hidden md:block'>
