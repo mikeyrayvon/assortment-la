@@ -22,6 +22,17 @@ const HeaderNav = ({ shouldAnimate }) => {
         ease: 'power1.inOut'
       });
 
+      gsap.from('.header-logo', {
+        scrollTrigger: {
+          scrub: true,
+          start: 100,
+          end: 350
+        },
+        scale: 1.3,
+        transformOrigin: 'center top',
+        ease: 'power1.inOut'
+      });
+
       gsap.from('.main-nav', {
         scrollTrigger: {
           scrub: true,
@@ -39,9 +50,9 @@ const HeaderNav = ({ shouldAnimate }) => {
     <div className={'header-nav absolute w-full top-0 left-0 z-30 pt-4 md:pt-8'}>
       <Container>
         <div className='text-center flex flex-col items-center z-30'>
-          <h1 className='pt-1'>
+          <h1 className='pt-1 mb-4'>
             <NextLink href={'/'}>
-              <a className='uppercase text-2xl'><img className='header-logo' src='/images/assortment-logo.svg' alt='Assortment' /></a>
+              <img className='header-logo' src='/images/assortment-logo.svg' alt='Assortment' />
             </NextLink>
           </h1>
           <nav className='main-nav hidden md:block'>

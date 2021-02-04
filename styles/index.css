@@ -62,7 +62,7 @@ main {
 }
 
 .header-logo {
-  height: 16px
+  height: 14px
 }
 
 .nav-trigger {
@@ -168,10 +168,6 @@ input {
 }
 
 @screen md {
-  .header-logo {
-    height: 18px
-  }
-
   .project-list-image {
     height: 372px;
   }
@@ -190,10 +186,6 @@ input {
 @screen lg {
   .container {
     width: 960px;
-  }
-
-  .header-logo {
-    height: 20px
   }
 
   .project-list-image {
