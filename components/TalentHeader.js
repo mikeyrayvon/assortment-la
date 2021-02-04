@@ -13,7 +13,7 @@ const TalentHeader = ({ talent }) => {
     return (
       <section className='mb-40'>
         <Container>
-          <div className='flex flex-col items-center mb-40'>
+          <div className='flex flex-col items-center mb-20 md:mb-40'>
             <div className='mb-4'>
               <span className='text-5xl sm:text-6xl md:text-7xl'>
                 <h1 className='inline font-heading'>{talent.data.name}</h1>
@@ -23,7 +23,7 @@ const TalentHeader = ({ talent }) => {
             <div><span>{talent.data.city}</span></div>
           </div>
           <div className='flex -mx-6'>
-            <div className='md:w-6/12 px-6'>
+            <div className='hidden md:block md:w-6/12 px-6'>
               <img src={talent.data.main_image.url} alt='' />
             </div>
             <div className='md:w-6/12 px-6'>
