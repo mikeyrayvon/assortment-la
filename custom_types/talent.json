@@ -1,61 +1,61 @@
 {
-  "Talent" : {
-    "uid" : {
-      "type" : "UID",
-      "config" : {
-        "label" : "UID",
-        "placeholder" : "unique-identifier-for-talent-url"
+  "Talent": {
+    "uid": {
+      "type": "UID",
+      "config": {
+        "label": "UID",
+        "placeholder": "unique-identifier-for-talent-url"
       }
     },
-    "name" : {
-      "type" : "Text",
-      "config" : {
-        "label" : "Name",
-        "placeholder" : "Talent Name",
-        "useAsTitle" : true
+    "name": {
+      "type": "Text",
+      "config": {
+        "label": "Name",
+        "placeholder": "Talent Name",
+        "useAsTitle": true
       }
     },
-    "city" : {
-      "type" : "Text",
-      "config" : {
-        "label" : "City"
+    "city": {
+      "type": "Text",
+      "config": {
+        "label": "City"
       }
     },
-    "bio" : {
-      "type" : "StructuredText",
-      "config" : {
-        "multi" : "paragraph, strong, em, hyperlink, list-item, o-list-item",
-        "allowTargetBlank" : true,
-        "label" : "Bio"
+    "bio": {
+      "type": "StructuredText",
+      "config": {
+        "multi": "paragraph, strong, em, hyperlink, list-item, o-list-item",
+        "allowTargetBlank": true,
+        "label": "Bio"
       }
     },
-    "pdf" : {
-      "type" : "Link",
-      "config" : {
-        "select" : "media",
-        "label" : "Portfolio PDF"
+    "pdf": {
+      "type": "Link",
+      "config": {
+        "select": "media",
+        "label": "Portfolio PDF"
       }
     },
-    "website" : {
-      "type" : "Link",
-      "config" : {
-        "select" : "web",
-        "label" : "Personal Website",
-        "allowTargetBlank" : true
+    "website": {
+      "type": "Link",
+      "config": {
+        "select": "web",
+        "label": "Personal Website",
+        "allowTargetBlank": true
       }
     },
-    "instagram" : {
-      "type" : "Text",
-      "config" : {
-        "label" : "Instagram Handle"
+    "instagram": {
+      "type": "Text",
+      "config": {
+        "label": "Instagram Handle"
       }
     },
-    "main_image" : {
-      "type" : "Image",
-      "config" : {
-        "constraint" : {
-          "width" : null,
-          "height" : null
+    "main_image": {
+      "type": "Image",
+      "config": {
+        "constraint": {
+          "width": null,
+          "height": null
         },
         "thumbnails": [
           {
@@ -79,94 +79,116 @@
             "height": null
           }
         ],
-        "label" : "Main Image"
+        "label": "Main Image"
       }
     },
-    "services" : {
-      "type" : "Group",
-      "config" : {
-        "fields" : {
-          "service" : {
-            "type" : "Link",
-            "config" : {
-              "select" : "document",
-              "customtypes" : [ "service" ],
-              "label" : "Service"
-            }
-          }
-        },
-        "label" : "Services"
-      }
-    },
-    "portfolio" : {
-      "type" : "Group",
-      "config" : {
-        "fields" : {
-          "image" : {
-            "type" : "Image",
-            "config" : {
-              "constraint" : {
-                "width" : null
-              },
-              "thumbnails": [
-                {
-                  "name": "mobile",
-                  "width": 700,
-                  "height": null
-                },
-                {
-                  "name": "sm",
-                  "width": 900,
-                  "height": null
-                },
-                {
-                  "name": "md",
-                  "width": 1200,
-                  "height": null
-                },
-                {
-                  "name": "xl",
-                  "width": 1500,
-                  "height": null
-                },
-                {
-                  "name": "full",
-                  "width": 1800,
-                  "height": null
-                }
+    "services": {
+      "type": "Group",
+      "config": {
+        "fields": {
+          "service": {
+            "type": "Link",
+            "config": {
+              "select": "document",
+              "customtypes": [
+                "service"
               ],
-              "label" : "Image"
-            }
-          },
-          "caption" : {
-            "type" : "Text",
-            "config" : {
-              "label" : "Caption"
-            }
-          },
-          "video" : {
-            "type" : "Text",
-            "config" : {
-              "label" : "Video URL"
+              "label": "Service"
             }
           }
         },
-        "label" : "Portfolio"
+        "label": "Services"
       }
     },
-    "projects" : {
-      "type" : "Group",
-      "config" : {
-        "fields" : {
-          "project" : {
-            "type" : "Link",
-            "config" : {
-              "select" : "document",
-              "label" : "Project"
+    "projects": {
+      "type": "Group",
+      "config": {
+        "fields": {
+          "project": {
+            "type": "Link",
+            "config": {
+              "select": "document",
+              "label": "Project"
             }
           }
         },
-        "label" : "Projects"
+        "label": "Projects"
+      }
+    },
+    "body": {
+      "type": "Slices",
+      "fieldset": "Slice zone",
+      "config": {
+        "labels": {
+          "portfolio": []
+        },
+        "choices": {
+          "portfolio": {
+            "type": "Slice",
+            "fieldset": "Portfolio",
+            "description": "A selection of images from the portfolio",
+            "icon": "work",
+            "display": "list",
+            "non-repeat": {
+              "title": {
+                "type": "Text",
+                "config": {
+                  "label": "Title"
+                }
+              }
+            },
+            "repeat": {
+              "image": {
+                "type": "Image",
+                "config": {
+                  "constraint": {
+                    "width": null
+                  },
+                  "thumbnails": [
+                    {
+                      "name": "mobile",
+                      "width": 700,
+                      "height": null
+                    },
+                    {
+                      "name": "sm",
+                      "width": 900,
+                      "height": null
+                    },
+                    {
+                      "name": "md",
+                      "width": 1200,
+                      "height": null
+                    },
+                    {
+                      "name": "xl",
+                      "width": 1500,
+                      "height": null
+                    },
+                    {
+                      "name": "full",
+                      "width": 1800,
+                      "height": null
+                    }
+                  ],
+                  "label": "Image"
+                }
+              },
+              "caption": {
+                "type": "Text",
+                "config": {
+                  "label": "Caption"
+                }
+              },
+              "video": {
+                "type": "Text",
+                "config": {
+                  "label": "Video URL"
+                }
+              }
+            }
+          }
+        }
       }
     }
   }
