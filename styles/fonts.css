@@ -1,25 +1,7 @@
 @font-face {
-    font-family: 'America';
-    src: url('/fonts/GTAmericaMono-Regular.woff2') format('woff2'),
-        url('/fonts/GTAmericaMono-Regular.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'America';
-    src: url('/fonts/GTAmericaMono-RegularItalic.woff2') format('woff2'),
-        url('/fonts/GTAmericaMono-RegularItalic.woff') format('woff');
-    font-weight: normal;
-    font-style: italic;
-    font-display: swap;
-}
-
-@font-face {
     font-family: 'Query';
-    src: url('/fonts/QueryNo1-Medium.woff2') format('woff2'),
-        url('/fonts/QueryNo1-Medium.woff') format('woff');
+    src: url('/fonts/Copyright-Public-Type.woff2') format('woff2'),
+        url('/fonts/Copyright-Public-Type.woff') format('woff');
     font-weight: normal;
     font-style: normal;
     font-display: swap;
