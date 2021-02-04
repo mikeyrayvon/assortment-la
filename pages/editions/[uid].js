@@ -1,7 +1,9 @@
 import { useState, useRef } from 'react'
 import Prismic from 'prismic-javascript'
 import Head from 'next/head'
-import { RichText } from 'prismic-reactjs'
+import { RichText } from 'prismic-reactjs';
+
+import { hrefResolver, linkResolver } from 'prismic-configuration'
 
 import { queryRepeatableDocuments } from 'utils/queries'
 
@@ -17,6 +19,7 @@ const Edition = ({ settings, edition }) => {
   const galleryRef = useRef()
 
   if (edition && edition.data) {
+    console.log(edition.data)
 
     let title = 'Assortment'
 
@@ -56,7 +59,26 @@ const Edition = ({ settings, edition }) => {
               }
             </div>
             <div className='px-4 w-full md:order-1 md:w-4/12 xxl:w-5/12 mt-8 md:mt-40'>
-              <h1 className='text-4xl font-heading'>{edition.data.title}</h1>
+              <h1 className='text-5xl font-heading mb-20'>{edition.data.title}</h1>
+              {edition.data.attributes &&
+                <div className='mb-20 text-right'>
+                  <div className='w-48 inline-block text-xs text-left'>
+                    <span>{edition.data.attributes}</span>
+                  </div>
+                </div>
+              }
+              {edition.data.show_inquire && settings.data.inquire_email &&
+                <div className='mb-20 text-right'>
+                  <a href={encodeURI(`mailto:${settings.data.inquire_email}?subject=Assortment Edition Inquiry - ${edition.data.title}`)} className='cursor-pointer w-48 py-4 inline-block bg-black text-white text-center'>
+                    <span className='font-heading text-xl'>Inquire</span>
+                  </a>
+                </div>
+              }
+              {edition.data.description &&
+                <div>
+                  {RichText.render(edition.data.description, linkResolver)}
+                </div>
+              }
             </div>
           </div>
         </Container>
