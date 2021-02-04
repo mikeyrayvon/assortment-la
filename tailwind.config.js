@@ -2,8 +2,8 @@ module.exports = {
   purge: [],
   theme: {
     fontFamily: {
-      'america': ['America', 'monospace'],
-      'query': ['Query', 'sans-serif'],
+      'basic': ['Dada Grotesk', 'monospace'],
+      'heading': ['Query', 'sans-serif'],
     },
     extend: {
       height: {

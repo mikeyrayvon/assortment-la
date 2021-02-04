@@ -16,7 +16,7 @@ const TalentHeader = ({ talent }) => {
           <div className='flex flex-col items-center mb-40'>
             <div className='mb-4'>
               <span className='text-5xl sm:text-6xl md:text-7xl'>
-                <h1 className='inline font-query'>{talent.data.name}</h1>
+                <h1 className='inline font-heading'>{talent.data.name}</h1>
                 <TalentServices services={talent.data.services} talentId={talent.id} />
               </span>
             </div>

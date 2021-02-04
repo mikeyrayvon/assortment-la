@@ -86,10 +86,10 @@ const Gallery = forwardRef((props, ref) => {
         closeGallery()
       }}><CgCompressRight /></div>
 
-      <div className='absolute bottom-0 left-0 right-0 flex flex-wrap justify-between items-center'>
+      <div className='z-50 absolute bottom-0 left-0 right-0 flex flex-wrap justify-between items-center'>
         <div className='w-full sm:w-auto px-12 mb-12 flex items-center justify-start'>
           {title &&
-            <span className='font-query'>{title}</span>
+            <span className='font-heading'>{title}</span>
           }
           {title && subtitle &&
             <img className='w-6 h-6 mx-2' src='/images/dot.svg' />

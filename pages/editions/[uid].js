@@ -56,7 +56,7 @@ const Edition = ({ settings, edition }) => {
               }
             </div>
             <div className='px-4 w-full md:order-1 md:w-4/12 xxl:w-5/12 mt-8 md:mt-40'>
-              <h1 className='text-4xl font-query'>{edition.data.title}</h1>
+              <h1 className='text-4xl font-heading'>{edition.data.title}</h1>
             </div>
           </div>
         </Container>

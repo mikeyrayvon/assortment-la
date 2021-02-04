@@ -45,7 +45,7 @@ const HeaderNav = ({ shouldAnimate }) => {
             </NextLink>
           </h1>
           <nav className='main-nav hidden md:block'>
-            <ul className='flex text-5xl font-query'>
+            <ul className='flex text-5xl font-heading'>
               <li className='nav-item px-2'>
                 <NextLink href={'/roster'}>
                   <a className='relative'>Roster</a>

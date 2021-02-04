@@ -25,7 +25,7 @@ const EditionFeaturedItem = ({ edition }) => {
               }
             </div>
             <div className='flex sm:order-1 sm:w-4/12 sm:px-4 sm:justify-center sm:flex-col'>
-              <h3 className='w-8/12 text-5xl font-query sm:w-full md:w-9/12'>
+              <h3 className='w-8/12 text-5xl font-heading sm:w-full md:w-9/12'>
                 <NextLink
                   as={linkResolver(edition)}
                   href={hrefResolver(edition)}

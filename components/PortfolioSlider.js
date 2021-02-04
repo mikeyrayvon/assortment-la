@@ -37,7 +37,7 @@ const PortfolioSlider = ({ talent }) => {
             <Swiper {...params}>
               <SwiperSlide>
                 <h2>
-                  <span className='font-query text-5xl'>Portfolio</span>
+                  <span className='font-heading text-5xl'>Portfolio</span>
                 </h2>
               </SwiperSlide>
               {talent.data.portfolio.map((item, index) => (

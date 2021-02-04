@@ -43,7 +43,7 @@ const LandingSliderTitles = ({ docs, hoveredId }) => {
           return (
             <div className={(hoveredId !== doc.id ? 'hidden' : 'block')} key={`landing_title_${doc.id}`}>
               <h3>
-                <span className='font-query text-7xl'>{doc.data.title}</span> <br />
+                <span className='font-heading text-7xl'>{doc.data.title}</span> <br />
                 {doc.data.talent && doc.data.talent.data &&
                   <span className='text-5xl'>{doc.data.talent.data.name}</span>
                 }

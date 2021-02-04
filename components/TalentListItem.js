@@ -13,12 +13,12 @@ const TalentListItem = ({ talent, setHoveredTalent, filterId }) => {
         href={hrefResolver(talent)}
       >
         <a
-          className='hover:underline font-query'
+          className='hover:underline font-heading'
           onMouseEnter={() => { setHoveredTalent(talent.id) }}
           onMouseLeave={() => { setHoveredTalent(false)}}>{talent.data.name}</a>
       </NextLink>
       <TalentServices services={talent.data.services} />
-      <span className='comma font-query'>,&nbsp;</span>
+      <span className='comma font-heading'>,&nbsp;</span>
     </li>
   )
 }

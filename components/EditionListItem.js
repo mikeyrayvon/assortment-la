@@ -22,7 +22,7 @@ const EditionListItem = ({ edition }) => {
           }
         </div>
         <div className='flex'>
-          <h3 className='w-8/12 text-5xl font-query'>
+          <h3 className='w-8/12 text-5xl font-heading'>
             <NextLink
               as={linkResolver(edition)}
               href={hrefResolver(edition)}

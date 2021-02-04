@@ -9,7 +9,7 @@
 /* purgecss end ignore */
 
 html, body {
-  @apply font-america;
+  @apply font-basic;
   font-size: 12px;
   overflow-x: hidden;
 }
@@ -37,7 +37,7 @@ main {
 }
 
 .superscript {
-  @apply text-sm font-america mx-2;
+  @apply text-sm font-basic mx-2;
   vertical-align: super;
 }
 

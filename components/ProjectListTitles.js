@@ -42,7 +42,7 @@ const ProjectListTitles = ({ projects, hoveredId }) => {
         return (
           <div className={(hoveredId !== project.id ? 'hidden' : 'block')} key={`project_title_${project.id}`}>
             <h3>
-              <span className='font-query text-7xl'>{project.data.title}</span> <br />
+              <span className='font-heading text-7xl'>{project.data.title}</span> <br />
               {project.data.talent && project.data.talent.data &&
                 <span className='text-5xl'>{project.data.talent.data.name}</span>
               }

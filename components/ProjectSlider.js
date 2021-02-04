@@ -5,6 +5,8 @@ import { default as NextLink } from 'next/link'
 
 SwiperCore.use([Mousewheel])
 
+import { hrefResolver, linkResolver } from 'prismic-configuration'
+
 import ProjectSliderItem from './ProjectSliderItem'
 import Container from './Container'
 import Gallery from './Gallery'
@@ -38,12 +40,12 @@ const ProjectSlider = ({ project, talent, showTalentName }) => {
             <Swiper {...params}>
               <SwiperSlide>
                 <h2>
-                  <span className='font-query text-5xl'>{project.data.title}</span> <br />
+                  <span className='font-heading text-5xl'>{project.data.title}</span> <br />
                   {talent && talent.data && showTalentName &&
                     <NextLink
                       as={linkResolver(talent)}
                       href={hrefResolver(talent)}
-                    ><a className='text-4xl'>{talent.data.name}</a></NextLink>
+                    ><a className='text-4xl cursor-pointer'>{talent.data.name}</a></NextLink>
                   }
                 </h2>
               </SwiperSlide>
