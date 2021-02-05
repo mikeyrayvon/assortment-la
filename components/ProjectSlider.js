@@ -69,7 +69,8 @@ const ProjectSlider = ({ project, talent, showTalentName }) => {
           docId={project.id}
           gallery={project.data.image_gallery}
           title={project.data.title}
-          subtitle={talent && talent.data ? talent.data.name : null}
+          subtitle={project.data.subtitle}
+          talentName={talent && talent.data ? talent.data.name : null}
           isActive={galleryActive}
           closeGallery={() => { setGalleryActive(false) }}
           ref={galleryRef}

@@ -6,11 +6,11 @@ import ReactPlayer from 'react-player'
 
 SwiperCore.use([Mousewheel])
 
-import ResponsiveImage from './ResponsiveImage'
+import SliderImage from './SliderImage'
 import Container from './Container'
 
 const Gallery = forwardRef((props, ref) => {
-  const { docId, gallery, title, subtitle, isActive, closeGallery } = props
+  const { docId, gallery, title, subtitle, talentName, isActive, closeGallery } = props
 
   const [isBeginning, setIsBeginning] = useState(true)
   const [isEnd, setIsEnd] = useState(false)
@@ -52,19 +52,12 @@ const Gallery = forwardRef((props, ref) => {
                   height={((60 / 16) * 9) + 'vw'}
                 />
               ) : (
-                <ResponsiveImage
+                <SliderImage
                   image={item.image}
-                  sizes={{
-                    mobile: 'w=700',
-                    md: 'w=1100',
-                    xl: 'w=1300',
-                    full: 'w=1500'
-                  }}
-                  pictureClass='w-full h-full px-24'
                   imgClass='w-full h-full object-contain'
+                  wrapperClass='w-full h-full px-24'
                 />
               )}
-
             </SwiperSlide>
           )
         })}
@@ -86,19 +79,22 @@ const Gallery = forwardRef((props, ref) => {
         closeGallery()
       }}><CgCompressRight /></div>
 
-      <div className='z-50 absolute bottom-0 left-0 right-0 flex flex-wrap justify-between items-center'>
-        <div className='w-full sm:w-auto px-12 mb-12 flex items-center justify-start'>
+      <div className='z-50 absolute bottom-3 left-12'>
+        <div className='mb-4'>
+          <span className='font-heading text-xl'>{talentName}</span>
+        </div>
+        <div className='mb-2 flex items-center justify-start'>
           {title &&
-            <span className='font-heading'>{title}</span>
+            <span>{title}</span>
           }
           {title && subtitle &&
-            <img className='w-6 h-6 mx-2' src='/images/dot.svg' />
+            <img className='w-1 h-1 mx-6' src='/images/dot.svg' />
           }
           {subtitle &&
             <span>{subtitle}</span>
           }
         </div>
-        <div className='w-full sm:w-auto px-12 mb-12'>&copy; {new Date().getFullYear()} Assorment. All rights reserved.</div>
+        <div className='w-full sm:w-auto text-xs text-gray-dark'>&copy; {new Date().getFullYear()} Assorment. All rights reserved.</div>
       </div>
     </div>
   )
