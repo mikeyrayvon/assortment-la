@@ -6,13 +6,17 @@ import { Client } from 'utils/prismicHelpers'
 import DefaultLayout from 'layouts'
 import LandingSlider from 'components/LandingSlider'
 
+import { useWindowSize } from 'utils/hooks'
+
 const Landing = ({ settings, docs }) => {
+  const windowSize = useWindowSize()
+
   return (
     <DefaultLayout settings={settings}>
       <Head>
         <title>Assortment</title>
       </Head>
-      <LandingSlider docs={docs} />
+      <LandingSlider docs={docs} shouldAnimate={windowSize.width >= 768} />
     </DefaultLayout>
   )
 }

@@ -1,6 +1,11 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import SwiperCore, { Mousewheel } from 'swiper'
 import { Swiper, SwiperSlide } from 'swiper/react'
+import { gsap } from 'gsap'
+import { ScrollTrigger } from 'gsap/dist/ScrollTrigger.js'
+
+gsap.registerPlugin(ScrollTrigger)
+gsap.core.globals('ScrollTrigger', ScrollTrigger)
 
 SwiperCore.use([Mousewheel])
 
@@ -8,11 +13,26 @@ import LandingSliderItem from './LandingSliderItem'
 import LandingSliderTitles from './LandingSliderTitles'
 import Container from './Container'
 
-const LandingSlider = ({ docs }) => {
+const LandingSlider = ({ docs, shouldAnimate }) => {
   const [hoveredId, setHoveredId] = useState('')
 
+  useEffect (()=>{
+    if (docs.length > 0 && shouldAnimate) {
+      gsap.from('.project-slider', {
+        scrollTrigger: {
+          scrub: true,
+          start: 100,
+          end: 350
+        },
+        scale: .5,
+        transformOrigin: '5% 0%',
+        ease: 'power1.inOut'
+      });
+    }
+  }, [shouldAnimate])
+
   const params = {
-    spaceBetween: 36,
+    spaceBetween: 120,
     slidesPerView: 'auto',
     centeredSlides: false,
     loop: false,
@@ -30,7 +50,7 @@ const LandingSlider = ({ docs }) => {
 
   if (docs.length > 0) {
     return (
-      <div className='relative'>
+      <div className='landing-slider-wrapper relative'>
         <div className='project-slider'>
           <Container>
             <Swiper {...params}>
