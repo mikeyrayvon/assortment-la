@@ -29,13 +29,13 @@ const Talent = ({ settings, talent, relatedProjects, relatedEditions }) => {
           <title>{title}</title>
         </Head>
         <TalentHeader talent={talent} />
-        {talent.data.portfolio.length > 0 &&
+        {talent.data.portfolio && talent.data.portfolio.length > 0 &&
           <section>
             <SectionHeader />
             <PortfolioSlider talent={talent} />
           </section>
         }
-        {relatedProjects.length > 0 &&
+        {relatedProjects && relatedProjects.length > 0 &&
           relatedProjects.map((project, index) => (
             <section key={`${talent.id}_${project.id}`}>
               <SectionHeader />
@@ -43,7 +43,7 @@ const Talent = ({ settings, talent, relatedProjects, relatedEditions }) => {
             </section>
           ))
         }
-        {relatedEditions.length > 0 &&
+        {relatedEditions && relatedEditions.length > 0 &&
           <section>
             <SectionHeader />
             <div className='mt-40'>
