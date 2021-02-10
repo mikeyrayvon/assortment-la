@@ -23,17 +23,21 @@ const Talent = ({ settings, talent, relatedProjects, relatedEditions }) => {
       title += ` | ${talent.data.name}`
     }
 
+    console.log(talent.data)
+
     return (
       <DefaultLayout settings={settings}>
         <Head>
           <title>{title}</title>
         </Head>
         <TalentHeader talent={talent} />
-        {talent.data.portfolio && talent.data.portfolio.length > 0 &&
-          <section>
-            <SectionHeader />
-            <PortfolioSlider talent={talent} />
-          </section>
+        {talent.data.body && talent.data.body.length > 0 &&
+          talent.data.body.map((portfolio, index) => (
+            <section>
+              <SectionHeader />
+              <PortfolioSlider talent={talent} portfolio={portfolio} />
+            </section>
+          ))
         }
         {relatedProjects && relatedProjects.length > 0 &&
           relatedProjects.map((project, index) => (

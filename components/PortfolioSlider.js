@@ -8,7 +8,7 @@ import ProjectSliderItem from './ProjectSliderItem'
 import Container from './Container'
 import Gallery from './Gallery'
 
-const PortfolioSlider = ({ talent }) => {
+const PortfolioSlider = ({ talent, portfolio }) => {
   const [galleryActive, setGalleryActive] = useState(false)
   const galleryRef = useRef()
 
@@ -37,10 +37,10 @@ const PortfolioSlider = ({ talent }) => {
             <Swiper {...params}>
               <SwiperSlide>
                 <h2>
-                  <span className='font-heading text-5xl'>Portfolio</span>
+                  <span className='font-heading text-5xl'>{portfolio.primary.title}</span>
                 </h2>
               </SwiperSlide>
-              {talent.data.portfolio.map((item, index) => (
+              {portfolio.items.map((item, index) => (
                 <SwiperSlide key={`portfolio_gallery_${talent.id}_${index}`}>
                   <ProjectSliderItem
                     item={item}
@@ -58,9 +58,9 @@ const PortfolioSlider = ({ talent }) => {
         </div>
         <Gallery
           docId={talent.id}
-          gallery={talent.data.portfolio}
+          gallery={portfolio.items}
           title={talent.data.name}
-          subtitle={null}
+          subtitle={portfolio.primary.title}
           isActive={galleryActive}
           closeGallery={() => { setGalleryActive(false) }}
           ref={galleryRef}
