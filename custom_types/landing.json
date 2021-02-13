@@ -24,8 +24,7 @@
             "config": {
               "select": "document",
               "customtypes": [
-                "project",
-                "talent"
+                "project"
               ],
               "label": "Document"
             }

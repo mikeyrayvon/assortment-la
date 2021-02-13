@@ -8,7 +8,7 @@ import LandingSlider from 'components/LandingSlider'
 
 import { useWindowSize } from 'utils/hooks'
 
-const Landing = ({ settings, docs }) => {
+const Landing = ({ settings, doc, projects }) => {
   const windowSize = useWindowSize()
 
   return (
@@ -16,7 +16,7 @@ const Landing = ({ settings, docs }) => {
       <Head>
         <title>Assortment</title>
       </Head>
-      <LandingSlider docs={docs} shouldAnimate={windowSize.width >= 768} />
+      <LandingSlider docs={projects} shouldAnimate={windowSize.width >= 768} />
     </DefaultLayout>
   )
 }
@@ -27,22 +27,22 @@ export async function getStaticProps({ preview = null, previewData = {} }) {
 
   const settings = await Client().getSingle('settings') || {}
 
-  const projects = await Client().query(
-    Prismic.Predicates.at('document.type', 'project'), {
-      orderings: '[my.project.date desc]',
-      pageSize: 100,
-      fetch: ['project.title','project.talent','project.main_image'],
+  const doc = await Client().getSingle('landing') || {}
+
+  let projects
+
+  if (doc.data.featured.length > 0) {
+    const projectIds = doc.data.featured.map(project => project.doc.id)
+    projects = await Client().getByIDs(projectIds, {
       fetchLinks: 'talent.name',
-      ...(ref ? { ref } : null)
-    },
-  ).catch(error => {
-    console.log(error)
-  }) || {}
+    })
+  }
 
   return {
     props: {
       settings,
-      docs: projects ? projects.results : [],
+      doc,
+      projects: projects ? projects.results : [],
       preview
     }
   }

@@ -23,8 +23,6 @@ const Talent = ({ settings, talent, relatedProjects, relatedEditions }) => {
       title += ` | ${talent.data.name}`
     }
 
-    console.log(talent.data)
-
     return (
       <DefaultLayout settings={settings}>
         <Head>
