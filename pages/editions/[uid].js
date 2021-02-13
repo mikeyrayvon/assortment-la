@@ -19,8 +19,6 @@ const Edition = ({ settings, edition }) => {
   const galleryRef = useRef()
 
   if (edition && edition.data) {
-    console.log(edition.data)
-
     let title = 'Assortment'
 
     if (edition.data.title) {
