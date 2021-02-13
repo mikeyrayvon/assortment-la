@@ -127,10 +127,7 @@ main {
 }
 
 .gallery .swiper-slide {
-  @apply flex justify-center items-center transition-opacity;
   opacity: .2;
-  width: 70vw;
-  height: 70vw;
   max-width: 900px;
   max-height: 900px;
 }

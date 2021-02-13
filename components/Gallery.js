@@ -43,7 +43,10 @@ const Gallery = forwardRef((props, ref) => {
       >
         {gallery.map((item, index) => {
           return (
-            <SwiperSlide key={`gallery_${docId}_slide_${index}`}>
+            <SwiperSlide
+              key={`gallery_${docId}_slide_${index}`}
+              className='flex justify-center items-center transition-opacity w-100vw h-100vw sm:h-70vw sm:w-70vw'
+            >
               {item.video ? (
                 <ReactPlayer
                   url={item.video}
@@ -55,7 +58,7 @@ const Gallery = forwardRef((props, ref) => {
                 <SliderImage
                   image={item.image}
                   imgClass='w-full h-full object-contain'
-                  wrapperClass='w-full h-full px-24'
+                  wrapperClass='w-full h-full px-4 sm:px-10 md:px-24'
                 />
               )}
             </SwiperSlide>
