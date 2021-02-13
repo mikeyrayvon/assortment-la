@@ -9,7 +9,7 @@ const EditionFeaturedItem = ({ edition }) => {
   if (edition && edition.data) {
     return (
       <Container>
-        <div className='flex flex-wrap -mx-4 sm:block sm:mx-0'>
+        <div className='flex flex-wrap -mx-4 sm:block sm:mx-0 mt-12'>
           <div className='w-full mb-20 sm:mb-40 px-4 sm:w-auto sm:flex sm:-mx-4 sm:px-0'>
             <div className='edition-list-image-holder sm:order-2 sm:w-8/12 sm:px-4'>
               {edition.data.main_image &&
