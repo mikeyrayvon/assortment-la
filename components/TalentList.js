@@ -23,7 +23,7 @@ const TalentList = ({ roster }) => {
   return (
     <div className='container mx-auto'>
       {servicesList.length > 0 &&
-        <div className='text-center'>
+        <div className='text-center -mt-8'>
           <span>Filter by </span>
           {servicesList.map((service) => {
             if (!service.data) {
