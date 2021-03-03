@@ -66,17 +66,21 @@ const Gallery = forwardRef((props, ref) => {
         })}
       </Swiper>
 
-      <div onClick={() => {
-        if (ref.current && ref.current.swiper) {
-          ref.current.swiper.slidePrev()
-        }
-      }} className={'hidden absolute top-0 left-0 bottom-0 z-30 w-1/3 text-6xl fill-black p-12 justify-start items-center bg-transparent cursor-pointer opacity-0' + (isBeginning ? '' : ' sm:flex hover:opacity-100')}><CgArrowLeft /></div>
-
-      <div onClick={() => {
-        if (ref.current && ref.current.swiper) {
-          ref.current.swiper.slideNext()
-        }
-      }} className={'hidden absolute top-0 right-0 bottom-0 z-30 w-1/3 text-6xl fill-black p-12 justify-end items-center bg-transparent cursor-pointer opacity-0' + (isEnd ? '' : ' sm:flex hover:opacity-100')}><CgArrowRight /></div>
+      {gallery.length > 1 &&
+        <div onClick={() => {
+          if (ref.current && ref.current.swiper) {
+            ref.current.swiper.slidePrev()
+          }
+        }} className={'hidden absolute top-0 left-0 bottom-0 z-30 w-1/3 text-6xl fill-black p-12 justify-start items-center bg-transparent cursor-pointer opacity-0' + (isBeginning ? '' : ' sm:flex hover:opacity-100')}><CgArrowLeft /></div>
+      }
+      
+      {gallery.length > 1 &&
+        <div onClick={() => {
+          if (ref.current && ref.current.swiper) {
+            ref.current.swiper.slideNext()
+          }
+        }} className={'hidden absolute top-0 right-0 bottom-0 z-30 w-1/3 text-6xl fill-black p-12 justify-end items-center bg-transparent cursor-pointer opacity-0' + (isEnd ? '' : ' sm:flex hover:opacity-100')}><CgArrowRight /></div>
+      }
 
       <div className='absolute top-0 right-0 p-4 m-4 cursor-pointer z-50 text-4xl fill-gray-dark' onClick={() => {
         closeGallery()
