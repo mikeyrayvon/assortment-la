@@ -7,7 +7,7 @@ import { hrefResolver, linkResolver } from 'prismic-configuration'
 
 import { queryRepeatableDocuments } from 'utils/queries'
 
-import DefaultLayout from 'layouts'
+import DefaultLayout from 'components/DefaultLayout'
 import Container from 'components/Container'
 import Gallery from 'components/Gallery'
 import ResponsiveImage from 'components/ResponsiveImage'

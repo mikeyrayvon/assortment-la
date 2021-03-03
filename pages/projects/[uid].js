@@ -4,7 +4,7 @@ import { RichText } from 'prismic-reactjs'
 
 import { queryRepeatableDocuments } from 'utils/queries'
 
-import DefaultLayout from 'layouts'
+import DefaultLayout from 'components/DefaultLayout'
 import ProjectSlider from 'components/ProjectSlider'
 
 import { Client } from 'utils/prismicHelpers'

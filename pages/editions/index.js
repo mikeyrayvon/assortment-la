@@ -3,7 +3,7 @@ import Head from 'next/head'
 import Prismic from 'prismic-javascript'
 import { Client } from 'utils/prismicHelpers'
 
-import DefaultLayout from 'layouts';
+import DefaultLayout from 'components/DefaultLayout'
 import EditionList from 'components/EditionList';
 import EditionFeaturedItem from 'components/EditionFeaturedItem';
 

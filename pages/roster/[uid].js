@@ -3,7 +3,7 @@ import Head from 'next/head'
 
 import { queryRepeatableDocuments } from 'utils/queries'
 
-import DefaultLayout from 'layouts'
+import DefaultLayout from 'components/DefaultLayout'
 import ProjectSlider from 'components/ProjectSlider'
 import TalentHeader from 'components/TalentHeader'
 import EditionList from 'components/EditionList'

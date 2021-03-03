@@ -5,7 +5,7 @@ import { Client } from 'utils/prismicHelpers'
 
 import { hrefResolver, linkResolver } from 'prismic-configuration'
 
-import DefaultLayout from 'layouts'
+import DefaultLayout from 'components/DefaultLayout'
 import Container from 'components/Container'
 import TalentList from 'components/TalentList'
 
