@@ -16,8 +16,6 @@ const Gallery = forwardRef((props, ref) => {
   const [isEnd, setIsEnd] = useState(false)
   const [activeIndex, setActiveIndex] = useState(0)
 
-  let captions = []
-
   const params = {
     centeredSlides: true,
     slidesPerView: 'auto',
@@ -29,6 +27,8 @@ const Gallery = forwardRef((props, ref) => {
     },
     slideToClickedSlide: true
   }
+
+
 
   return (
     <div className={'gallery fixed bg-white inset-0 z-40 flex items-center transition-opacity' + (isActive ? '' : ' opacity-0 pointer-events-none')}>
@@ -73,7 +73,7 @@ const Gallery = forwardRef((props, ref) => {
           }
         }} className={'hidden absolute top-0 left-0 bottom-0 z-30 w-1/3 text-6xl fill-black p-12 justify-start items-center bg-transparent cursor-pointer opacity-0' + (isBeginning ? '' : ' sm:flex hover:opacity-100')}><CgArrowLeft /></div>
       }
-      
+
       {gallery.length > 1 &&
         <div onClick={() => {
           if (ref.current && ref.current.swiper) {
@@ -94,11 +94,11 @@ const Gallery = forwardRef((props, ref) => {
           {title &&
             <span>{title}</span>
           }
-          {title && subtitle &&
+          {title && gallery[activeIndex].caption && gallery[activeIndex].caption.length > 0 &&
             <img className='w-1 h-1 mx-6' src='/images/dot.svg' />
           }
-          {subtitle &&
-            <span>{subtitle}</span>
+          {gallery[activeIndex].caption && gallery[activeIndex].caption.length > 0 &&
+            <span>{gallery[activeIndex].caption}</span>
           }
         </div>
         <div className='w-full sm:w-auto text-xs text-gray-dark'>&copy; {new Date().getFullYear()} Assorment. All rights reserved.</div>
