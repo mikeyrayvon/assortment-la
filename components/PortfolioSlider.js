@@ -13,7 +13,7 @@ const PortfolioSlider = ({ talent, portfolio }) => {
   const galleryRef = useRef()
 
   const params = {
-    spaceBetween: 36,
+    spaceBetween: 120,
     slidesPerView: 'auto',
     centeredSlides: false,
     loop: false,
