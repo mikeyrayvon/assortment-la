@@ -30,7 +30,7 @@ export async function getStaticProps({ preview = null, previewData = {} }) {
 
   const editions = await Client().query(
     Prismic.Predicates.at('document.type', 'edition'), {
-      orderings : '[document.first_publication_date]',
+      orderings : '[document.first_publication_date desc]',
       pageSize: 100,
       fetch: ['edition.title', 'edition.attributes', 'edition.main_image'],
       ...(ref ? { ref } : null)
