@@ -33,7 +33,7 @@ const TalentHeader = ({ talent }) => {
               <div className='flex flex-wrap'>
                 {talent.data.pdf.url &&
                   <div className='pl-12 w-1/2 mb-12'>
-                    <a className='hover:underline flex' href={talent.data.pdf.url}>
+                    <a className='hover:underline flex' href={talent.data.pdf.url} target='_blank'>
                       <div className='flex-shrink-0 bg-black w-11 h-16 p-2 inline-block mr-9'></div>
                       <div className='w-12'><span>Download {talent.data.name}'s Portfolio</span></div>
                     </a>
@@ -41,7 +41,7 @@ const TalentHeader = ({ talent }) => {
                 }
                 {talent.data.website.url &&
                   <div className='pl-12 w-1/2 mb-12'>
-                    <a className='hover:underline flex items-start' href={talent.data.website.url}>
+                    <a className='hover:underline flex items-start' href={talent.data.website.url} target='_blank'>
                       <img className='flex-shrink-0 w-4 inline-block mr-8 mt-2' src='/images/curved-arrow.svg' />
                       <div className='w-12'><span>Personal Website</span></div>
                     </a>
@@ -49,7 +49,7 @@ const TalentHeader = ({ talent }) => {
                 }
                 {talent.data.instagram &&
                   <div className='pl-12 w-1/2 mb-12'>
-                    <a className='hover:underline flex' href={`https://instagram.com/${talent.data.instagram}`}>
+                    <a className='hover:underline flex' href={`https://instagram.com/${talent.data.instagram}`} target='_blank'>
                       <FaInstagram className='flex-shrink-0 bg-black text-white w-12 h-12 p-2 rounded-full inline-block mr-8' />
                       <span>@{talent.data.instagram}</span>
                     </a>
