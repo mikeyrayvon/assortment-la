@@ -1,7 +1,7 @@
 const SliderImage = ({image, sizes, wrapperClass, imgClass, handleClick, renderIcon}) => {
   if (image && image.url) {
     const imageUrl = new URL(image.url)
-    const imagePath = imageUrl.origin + imageUrl.pathname + '?auto=compress,format&cs=tinysrgb&'
+    const imagePath = imageUrl.origin + imageUrl.pathname + '?auto=compress,format&cs=srgb&'
 
     return (
       <div className={wrapperClass} onClick={() => { if (handleClick) { handleClick() } }}>
