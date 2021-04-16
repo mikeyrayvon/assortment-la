@@ -57,7 +57,7 @@ const Gallery = forwardRef((props, ref) => {
               ) : (
                 <SliderImage
                   image={item.image}
-                  imgClass='w-full h-full object-contain'
+                  imgClass='w-full h-full object-fill'
                   wrapperClass='w-full h-full px-4 sm:px-10 md:px-24'
                 />
               )}
