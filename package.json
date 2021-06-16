@@ -33,7 +33,9 @@
   },
   "license": "Apache-2.0",
   "devDependencies": {
+    "@netlify/plugin-nextjs": "^3.4.2",
     "autoprefixer": "^10.2.4",
+    "netlify-plugin-cache-nextjs": "^1.6.1",
     "postcss": "^8.2.6",
     "tailwindcss": "^2.0.3"
   },
