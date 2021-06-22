@@ -33,12 +33,12 @@ const Clock = ({ city }) => {
   }
 
   useEffect(() => {
-    const interval = setInterval(() => {
+    let interval = setInterval(() => {
       setTime(moment().tz(timezone).format('h:mm A'));
     }, 1000);
     setTime(moment().tz(timezone).format('h:mm A'));
     return () => clearInterval(interval);
-  }, []);
+  }, [timezone]);
 
   return (
     <span>{`${time} in ${city_string}`}</span>

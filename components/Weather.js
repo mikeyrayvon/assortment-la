@@ -34,6 +34,7 @@ const Weather = ({ city }) => {
       city_id = '5128581'
       break;
     default:
+      // 'Los Angeles'
       city_id = '5368361'
   }
 
@@ -47,7 +48,7 @@ const Weather = ({ city }) => {
       console.log(err.message);
     });
 
-  }, []);
+  }, [city_id]);
 
   const weatherIcon = (code) => {
     if (code === '01d') {
