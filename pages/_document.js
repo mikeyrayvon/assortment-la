@@ -13,6 +13,10 @@ class MyDocument extends Document {
         <Head>
           <meta charSet="utf-8" />
           <link rel="icon" href="/favicon.png" type="image/png" />
+          
+          <link rel="preload" href="/fonts/Copyright-Public-Type.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
+          <link rel="preload" href="/fonts/DadaGrotesk-Book.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
+          <link rel="preload" href="/fonts/DadaGrotesk-BookIta.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
         </Head>
         <body className='text-black bg-gray'>
           <Main />
