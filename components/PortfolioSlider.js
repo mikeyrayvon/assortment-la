@@ -35,11 +35,13 @@ const PortfolioSlider = ({ talent, portfolio }) => {
         <div className='project-slider'>
           <Container>
             <Swiper {...params}>
-              <SwiperSlide>
-                <h2>
-                  <span className='font-heading text-5xl'>{portfolio.primary.title}</span>
-                </h2>
-              </SwiperSlide>
+              {portfolio.primary.title &&
+                <SwiperSlide>
+                  <h2>
+                    <span className='font-heading text-5xl'>{portfolio.primary.title}</span>
+                  </h2>
+                </SwiperSlide>
+              }
               {portfolio.items.map((item, index) => (
                 <SwiperSlide key={`portfolio_gallery_${talent.id}_${index}`}>
                   <ProjectSliderItem
