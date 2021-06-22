@@ -4,7 +4,6 @@ import Head from 'next/head'
 import { queryRepeatableDocuments } from 'utils/queries'
 
 import DefaultLayout from 'components/DefaultLayout'
-import ProjectSlider from 'components/ProjectSlider'
 import TalentHeader from 'components/TalentHeader'
 import EditionList from 'components/EditionList'
 import SectionHeader from 'components/SectionHeader'
@@ -13,7 +12,7 @@ import PortfolioSlider from 'components/PortfolioSlider'
 import { hrefResolver, linkResolver } from 'prismic-configuration'
 import { Client } from 'utils/prismicHelpers'
 
-const Talent = ({ settings, talent, relatedProjects, relatedEditions }) => {
+const Talent = ({ settings, talent, relatedEditions }) => {
 
   if (talent && talent.data) {
 
@@ -34,14 +33,6 @@ const Talent = ({ settings, talent, relatedProjects, relatedEditions }) => {
             <section key={`${talent.id}_${portfolio.id}`}>
               <SectionHeader />
               <PortfolioSlider talent={talent} portfolio={portfolio} />
-            </section>
-          ))
-        }
-        {relatedProjects && relatedProjects.length > 0 &&
-          relatedProjects.map((project, index) => (
-            <section key={`${talent.id}_${project.id}`}>
-              <SectionHeader />
-              <ProjectSlider project={project} talent={talent} />
             </section>
           ))
         }
@@ -70,15 +61,6 @@ export async function getStaticProps({ params, preview = null, previewData = {} 
     ...(ref ? { ref } : null)
   }) || {}
 
-  const relatedProjects = await Client().query([
-    Prismic.Predicates.at('document.type', 'project'),
-    Prismic.Predicates.at('my.project.talent', talent.id)
-  ], {
-    ...(ref ? { ref } : null)
-  }).catch(error => {
-    console.log(error)
-  }) || {}
-
   const relatedEditions = await Client().query([
     Prismic.Predicates.at('document.type', 'edition'),
     Prismic.Predicates.at('my.edition.talent', talent.id)
@@ -93,7 +75,6 @@ export async function getStaticProps({ params, preview = null, previewData = {} 
       settings,
       preview,
       talent,
-      relatedProjects: relatedProjects ? relatedProjects.results : [],
       relatedEditions: relatedEditions ? relatedEditions.results : [],
     }
   }
