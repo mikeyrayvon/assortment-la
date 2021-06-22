@@ -4,19 +4,15 @@ import Prismic from 'prismic-javascript'
 import { Client } from 'utils/prismicHelpers'
 
 import DefaultLayout from 'components/DefaultLayout'
-import LandingSlider from 'components/LandingSlider'
+import TalentList from 'components/TalentList'
 
-import { useWindowSize } from 'utils/hooks'
-
-const Landing = ({ settings, doc, projects }) => {
-  const windowSize = useWindowSize()
-
+const Roster = ({ settings, roster, services }) => {
   return (
     <DefaultLayout settings={settings}>
       <Head>
         <title>Assortment</title>
       </Head>
-      <LandingSlider docs={projects} shouldAnimate={windowSize.width >= 768} />
+      <TalentList roster={roster} services={services} />
     </DefaultLayout>
   )
 }
@@ -27,25 +23,25 @@ export async function getStaticProps({ preview = null, previewData = {} }) {
 
   const settings = await Client().getSingle('settings') || {}
 
-  const doc = await Client().getSingle('landing') || {}
-
-  let projects
-
-  if (doc.data.featured.length > 0) {
-    const projectIds = doc.data.featured.map(project => project.doc.id)
-    projects = await Client().getByIDs(projectIds, {
-      fetchLinks: 'talent.name',
-    })
-  }
+  const roster = await Client().query(
+    Prismic.Predicates.at('document.type', 'talent'), {
+      orderings: '[my.talent.name]',
+      pageSize: 100,
+      fetch: ['talent.name','talent.services','talent.main_image'],
+      fetchLinks: 'service.title',
+      ...(ref ? { ref } : null)
+    },
+  ).catch(error => {
+    console.log(error)
+  }) || {}
 
   return {
     props: {
+      preview,
       settings,
-      doc,
-      projects: projects ? projects.results : [],
-      preview
+      roster: roster ? roster.results : []
     }
   }
 }
 
-export default Landing
+export default Roster
