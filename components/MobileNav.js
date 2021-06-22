@@ -6,8 +6,14 @@ const MobileNav = ({ navActive }) => {
       <nav>
         <ul className='text-6xl font-heading'>
           <li className='px-2'>
-            <NextLink href={'/roster'}>
-              <a className='hover:underline'>Roster</a>
+            <NextLink href={'/'}>
+              <a className='hover:underline'>Artists</a>
+            </NextLink>
+            <span className='pointer-events-none'>,</span>
+          </li>
+          <li className='px-2'>
+            <NextLink href={'/news'}>
+              <a className='hover:underline'>News</a>
             </NextLink>
             <span className='pointer-events-none'>,</span>
           </li>
