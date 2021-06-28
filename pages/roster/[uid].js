@@ -30,7 +30,7 @@ const Talent = ({ settings, talent, relatedEditions }) => {
         <TalentHeader talent={talent} />
         {talent.data.body && talent.data.body.length > 0 &&
           talent.data.body.map((portfolio, index) => (
-            <section key={`${talent.id}_${portfolio.id}`}>
+            <section key={`${talent.id}_portfolio_${index}`}>
               <SectionHeader />
               <PortfolioSlider talent={talent} portfolio={portfolio} />
             </section>
