@@ -7,6 +7,7 @@ import DefaultLayout from 'components/DefaultLayout'
 import LandingSlider from 'components/LandingSlider'
 
 const News = ({ settings, doc, projects }) => {
+  console.log(projects)
   return (
     <DefaultLayout settings={settings}>
       <Head>
