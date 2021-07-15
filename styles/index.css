@@ -12,6 +12,7 @@ html, body {
   @apply font-basic;
   font-size: 12px;
   overflow-x: hidden;
+  overscroll-behavior-x: none;
 }
 
 main {
